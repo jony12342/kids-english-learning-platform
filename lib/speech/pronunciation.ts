@@ -20,7 +20,7 @@ const SPEECH_RECOGNITION_CONFIG = {
  * 使用 Web Speech API 的 SpeechSynthesis
  */
 export class TextToSpeech {
-  private synthesis: SpeechSynthesis;
+  private synthesis!: SpeechSynthesis;
   private voices: SpeechSynthesisVoice[] = [];
 
   constructor() {
