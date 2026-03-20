@@ -16,6 +16,7 @@ export interface ResponseTemplate {
   followUp?: string;
   animation?: string;
   sound?: string;
+  action?: string;
 }
 
 export interface MatchResult {

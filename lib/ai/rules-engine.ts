@@ -165,6 +165,10 @@ export class RulesEngine {
     const saveConfig = rule.saveData;
     const extractedData = matchResult.extractedData || {};
 
+    if (!saveConfig) {
+      return null;
+    }
+
     if (saveConfig.extractFrom === 'match') {
       const value = extractedData.match;
       if (value) {

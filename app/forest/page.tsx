@@ -4,14 +4,18 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSpeech } from '@/lib/hooks/use-speech';
 import { useChatStore } from '@/lib/store/chat-store';
+import { useChild } from '@/lib/hooks/use-child';
+import { getSceneProgressClient, upsertSceneProgressClient, logActivityClient } from '@/lib/supabase/client-queries';
 import { FOREST_ANIMALS, ForestAnimal, AnimalId } from '@/types/scene';
 import { Home, Mic, MicOff, Volume2, ArrowLeft } from 'lucide-react';
 
 export default function ForestPage() {
   const router = useRouter();
+  const { childId } = useChild();
   const [isClient, setIsClient] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [selectedAnimal, setSelectedAnimal] = useState<ForestAnimal | null>(null);
-  const [unlockedAnimals, setUnlockedAnimals] = useState<AnimalId[]>(['bear']);
+  const [unlockedAnimals, setUnlockedAnimals] = useState<AnimalId[]>([]);
   const [completedDialogues, setCompletedDialogues] = useState<string[]>([]);
   const [totalStars, setTotalStars] = useState(0);
 
@@ -37,8 +41,53 @@ export default function ForestPage() {
 
   useEffect(() => {
     setIsClient(true);
-    // Show welcome message
-    if (messages.length === 0) {
+  }, []);
+
+  useEffect(() => {
+    if (childId) {
+      loadProgress();
+      logActivityClient(childId, 'scene_visit', { scene: 'forest' });
+    }
+  }, [childId]);
+
+  async function loadProgress() {
+    if (!childId) {
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const progress = await getSceneProgressClient(childId, 'forest');
+
+      if (progress) {
+        setUnlockedAnimals(progress.unlocked_areas as AnimalId[] || []);
+        setCompletedDialogues(progress.completed_tasks || []);
+        setTotalStars(progress.stars_earned || 0);
+      } else {
+        // Create initial progress
+        await upsertSceneProgressClient(childId, 'forest', {
+          unlocked_areas: ['bear'],
+          completed_tasks: [],
+          conversations_completed: 0,
+          stars_earned: 0
+        });
+        setUnlockedAnimals(['bear']);
+        setCompletedDialogues([]);
+        setTotalStars(0);
+      }
+    } catch (error) {
+      console.error('Failed to load progress:', error);
+      setUnlockedAnimals(['bear']);
+      setCompletedDialogues([]);
+      setTotalStars(0);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // Show welcome message
+  useEffect(() => {
+    if (!loading && messages.length === 0) {
       setTimeout(() => {
         addMessage({
           role: 'assistant',
@@ -46,9 +95,9 @@ export default function ForestPage() {
         });
       }, 500);
     }
-  }, []);
+  }, [loading]);
 
-  if (!isClient) {
+  if (!isClient || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-200 via-emerald-200 to-teal-200">
         <div className="text-4xl font-bold text-green-700 animate-pulse">
@@ -128,7 +177,7 @@ export default function ForestPage() {
     }
   };
 
-  const checkUnlocks = () => {
+  const checkUnlocks = async () => {
     const newUnlocks: AnimalId[] = [...unlockedAnimals];
 
     // Rabbit: needs 2 completed dialogues
@@ -159,6 +208,20 @@ export default function ForestPage() {
     }
 
     setUnlockedAnimals(newUnlocks);
+
+    // Save to database
+    if (childId) {
+      try {
+        await upsertSceneProgressClient(childId, 'forest', {
+          unlocked_areas: newUnlocks,
+          completed_tasks: completedDialogues,
+          conversations_completed: completedDialogues.length,
+          stars_earned: totalStars
+        });
+      } catch (error) {
+        console.error('Failed to save progress:', error);
+      }
+    }
   };
 
   const goBack = () => {

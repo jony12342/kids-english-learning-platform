@@ -127,10 +127,28 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* 角色编辑器 */}
+        <a
+          href="/character"
+          className="inline-block bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-lg transform transition hover:scale-105 active:scale-95 cursor-pointer mb-8"
+        >
+          <div className="flex items-center justify-center gap-3">
+            <div className="text-4xl">🎨</div>
+            <div className="text-left">
+              <div className="font-size-small font-bold text-primary-blue">
+                创建我的角色
+              </div>
+              <div className="text-xs text-gray-600">
+                定制专属学习伙伴
+              </div>
+            </div>
+          </div>
+        </a>
+
         {/* 家长入口 */}
-        <div className="text-white/80 text-sm">
-          <a href="#" className="hover:text-white underline">
-            家长入口 →
+        <div className="text-white/80 text-sm mb-4">
+          <a href="/parent" className="hover:text-white underline">
+            👨‍👩‍👧 家长入口 →
           </a>
         </div>
       </div>

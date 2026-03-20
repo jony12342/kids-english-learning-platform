@@ -488,3 +488,329 @@ export async function upsertLearningStats(
 
   return data;
 }
+
+// ============================================
+// Phase 2: Scene Progress Operations / 场景进度操作
+// ============================================
+
+/**
+ * Get scene progress for a child
+ */
+export async function getSceneProgress(childId: string, sceneType: string) {
+  const supabase = createServerClient();
+
+  const { data, error } = await supabase
+    .from('scene_progress')
+    .select('*')
+    .eq('child_id', childId)
+    .eq('scene_type', sceneType)
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error fetching scene progress:', error);
+    return null;
+  }
+
+  return data;
+}
+
+/**
+ * Create or update scene progress
+ */
+export async function upsertSceneProgress(
+  childId: string,
+  sceneType: string,
+  updates: any
+) {
+  const supabase = createServerClient();
+
+  const { data, error } = await supabase
+    .from('scene_progress')
+    .upsert({
+      child_id: childId,
+      scene_type: sceneType,
+      ...updates
+    })
+    .select()
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error upserting scene progress:', error);
+    return null;
+  }
+
+  return data;
+}
+
+// ============================================
+// Phase 2: Daily Tasks Operations / 每日任务操作
+// ============================================
+
+/**
+ * Get today's daily tasks for a child
+ */
+export async function getDailyTasks(childId: string) {
+  const supabase = createServerClient();
+  const today = new Date().toISOString().split('T')[0];
+
+  const { data, error } = await supabase
+    .from('daily_tasks')
+    .select('*')
+    .eq('child_id', childId)
+    .eq('task_date', today)
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error fetching daily tasks:', error);
+    return null;
+  }
+
+  return data;
+}
+
+/**
+ * Create or update daily tasks
+ */
+export async function upsertDailyTasks(
+  childId: string,
+  taskDate: string,
+  tasks: any,
+  streakCount: number
+) {
+  const supabase = createServerClient();
+
+  const { data, error } = await supabase
+    .from('daily_tasks')
+    .upsert({
+      child_id: childId,
+      task_date: taskDate,
+      tasks,
+      streak_count: streakCount
+    })
+    .select()
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error upserting daily tasks:', error);
+    return null;
+  }
+
+  return data;
+}
+
+// ============================================
+// Phase 2: Characters Operations / 角色操作
+// ============================================
+
+/**
+ * Get all characters for a child
+ */
+export async function getCharactersByChildId(childId: string) {
+  const supabase = createServerClient();
+
+  const { data, error } = await supabase
+    .from('characters')
+    .select('*')
+    .eq('child_id', childId)
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('Error fetching characters:', error);
+    return [];
+  }
+
+  return data || [];
+}
+
+/**
+ * Create a new character
+ */
+export async function createCharacter(
+  character: any
+) {
+  const supabase = createServerClient();
+
+  const { data, error } = await supabase
+    .from('characters')
+    .insert(character)
+    .select()
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error creating character:', error);
+    return null;
+  }
+
+  return data;
+}
+
+// ============================================
+// Phase 2: Parent Settings Operations / 家长设置操作
+// ============================================
+
+/**
+ * Get parent settings for a child
+ */
+export async function getParentSettings(childId: string) {
+  const supabase = createServerClient();
+
+  const { data, error } = await supabase
+    .from('parent_settings')
+    .select('*')
+    .eq('child_id', childId)
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error fetching parent settings:', error);
+    return null;
+  }
+
+  return data;
+}
+
+/**
+ * Create or update parent settings
+ */
+export async function upsertParentSettings(
+  childId: string,
+  settings: any
+) {
+  const supabase = createServerClient();
+
+  const { data, error } = await supabase
+    .from('parent_settings')
+    .upsert({
+      child_id: childId,
+      ...settings
+    })
+    .select()
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error upserting parent settings:', error);
+    return null;
+  }
+
+  return data;
+}
+
+// ============================================
+// Phase 2: Learning Statistics / 学习统计（扩展）
+// ============================================
+
+/**
+ * Get or create today's learning statistics
+ */
+export async function getOrCreateTodayStatistics(childId: string) {
+  const supabase = createServerClient();
+  const today = new Date().toISOString().split('T')[0];
+
+  let { data, error } = await supabase
+    .from('learning_statistics')
+    .select('*')
+    .eq('child_id', childId)
+    .eq('stat_date', today)
+    .maybeSingle();
+
+  if (error || !data) {
+    const result = await supabase
+      .from('learning_statistics')
+      .insert({
+        child_id: childId,
+        stat_date: today,
+        words_learned: 0,
+        conversations_completed: 0,
+        stars_earned: 0,
+        time_spent_minutes: 0,
+        scenes_visited: [],
+        tasks_completed: 0,
+        badges_earned: []
+      })
+      .select()
+      .maybeSingle();
+
+    data = result.data;
+  }
+
+  return data;
+}
+
+/**
+ * Update today's learning statistics
+ */
+export async function updateTodayStatistics(
+  childId: string,
+  updates: any
+) {
+  const supabase = createServerClient();
+  const today = new Date().toISOString().split('T')[0];
+
+  const { data, error } = await supabase
+    .from('learning_statistics')
+    .update(updates)
+    .eq('child_id', childId)
+    .eq('stat_date', today)
+    .select()
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error updating learning statistics:', error);
+    return null;
+  }
+
+  return data;
+}
+
+// ============================================
+// Phase 2: Activity Logs / 活动日志
+// ============================================
+
+/**
+ * Log an activity
+ */
+export async function logActivity(
+  childId: string,
+  activityType: string,
+  activityDetails: any = {}
+) {
+  const supabase = createServerClient();
+
+  const { data, error } = await supabase
+    .from('activity_logs')
+    .insert({
+      child_id: childId,
+      activity_type: activityType,
+      activity_details: activityDetails
+    })
+    .select()
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error logging activity:', error);
+    return null;
+  }
+
+  return data;
+}
+
+/**
+ * Get recent activities for a child
+ */
+export async function getRecentActivities(childId: string, limit: number = 10) {
+  const supabase = createServerClient();
+
+  const { data, error } = await supabase
+    .from('activity_logs')
+    .select('*')
+    .eq('child_id', childId)
+    .order('timestamp', { ascending: false })
+    .limit(limit);
+
+  if (error) {
+    console.error('Error fetching recent activities:', error);
+    return [];
+  }
+
+  return data || [];
+}
+

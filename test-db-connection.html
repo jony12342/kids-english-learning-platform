@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Database Connection</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <h1>Database Connection Test</h1>
+    <div id="result"></div>
+
+    <script>
+        const supabaseUrl = 'https://vdwvkfgqxyyncwcrzvmn.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkd3ZrZmdxeHl5bmN3Y3J6dm1uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ1MDg3NzksImV4cCI6MjA1MDA4NDc3OX0.v7JRtNGrwJGdVSb0eP4rH2nNyFoF3V5RuWgPdFmVhYs';
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        const childId = '00000000-0000-0000-0000-000000000001';
+        const today = new Date().toISOString().split('T')[0];
+
+        async function testConnection() {
+            const result = document.getElementById('result');
+            result.innerHTML = '<p>Testing connection...</p>';
+
+            try {
+                // Test 1: Check if child exists
+                const { data: child, error: childError } = await supabase
+                    .from('children')
+                    .select('*')
+                    .eq('id', childId)
+                    .maybeSingle();
+
+                if (childError) {
+                    result.innerHTML += `<p style="color: red;">Child query error: ${childError.message}</p>`;
+                } else {
+                    result.innerHTML += `<p style="color: green;">✓ Child found: ${child ? child.name : 'null'}</p>`;
+                }
+
+                // Test 2: Check daily_tasks table
+                const { data: tasks, error: tasksError } = await supabase
+                    .from('daily_tasks')
+                    .select('*')
+                    .eq('child_id', childId)
+                    .eq('task_date', today)
+                    .maybeSingle();
+
+                if (tasksError) {
+                    result.innerHTML += `<p style="color: red;">Daily tasks error: ${tasksError.message}</p>`;
+                } else {
+                    result.innerHTML += `<p style="color: green;">✓ Daily tasks: ${tasks ? 'Found' : 'Not found (will create new)'}</p>`;
+                }
+
+                // Test 3: Check learning_statistics table
+                const { data: stats, error: statsError } = await supabase
+                    .from('learning_statistics')
+                    .select('*')
+                    .eq('child_id', childId)
+                    .eq('stat_date', today)
+                    .maybeSingle();
+
+                if (statsError) {
+                    result.innerHTML += `<p style="color: red;">Statistics error: ${statsError.message}</p>`;
+                } else {
+                    result.innerHTML += `<p style="color: green;">✓ Statistics: ${stats ? 'Found' : 'Not found (will create new)'}</p>`;
+                }
+
+                // Test 4: Check activity_logs table
+                const { data: logs, error: logsError } = await supabase
+                    .from('activity_logs')
+                    .select('*')
+                    .eq('child_id', childId)
+                    .order('timestamp', { ascending: false })
+                    .limit(1);
+
+                if (logsError) {
+                    result.innerHTML += `<p style="color: red;">Activity logs error: ${logsError.message}</p>`;
+                } else {
+                    result.innerHTML += `<p style="color: green;">✓ Activity logs: ${logs ? logs.length + ' records' : '0 records'}</p>`;
+                }
+
+                result.innerHTML += '<p style="color: blue; font-weight: bold;">All tests completed!</p>';
+
+            } catch (error) {
+                result.innerHTML += `<p style="color: red;">Unexpected error: ${error.message}</p>`;
+            }
+        }
+
+        // Run test when page loads
+        testConnection();
+    </script>
+</body>
+</html>

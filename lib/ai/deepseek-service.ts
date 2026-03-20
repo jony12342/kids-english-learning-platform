@@ -90,7 +90,6 @@ Remember: You're talking to young children. Be warm, patient, and make learning 
         model: this.openai(this.config.model),
         messages: messages.map(m => ({ role: m.role, content: m.content })),
         temperature,
-        maxTokens,
       });
 
       const response = result.text;
@@ -111,9 +110,9 @@ Remember: You're talking to young children. Be warm, patient, and make learning 
         text: response,
         isAI: true,
         usage: {
-          promptTokens: result.usage?.promptTokens || 0,
-          completionTokens: result.usage?.completionTokens || 0,
-          totalTokens: result.usage?.totalTokens || 0,
+          promptTokens: 0,
+          completionTokens: 0,
+          totalTokens: 0,
         },
       };
     } catch (error) {

@@ -116,7 +116,7 @@ export async function recordConversationCompleted(
   childId: string,
   messageCount: number,
   messages: Array<{ role: string; content: string }>
-): Promise<void> {
+): Promise<{ stars: number; newBadges: Badge[] }> {
   // Create conversation record
   const conversation = await createConversation({
     child_id: childId,
@@ -142,11 +142,13 @@ export async function recordConversationCompleted(
   // Determine achievement type
   const achievementType: any = messageCount >= 5 ? 'long_conversation' : 'conversation';
 
-  // Award stars
-  await awardStars(childId, achievementType);
+  // Award stars and return result
+  const result = await awardStars(childId, achievementType);
 
   // Update learning stats
   await updateLearningStatsForConversation(childId);
+
+  return result;
 }
 
 /**

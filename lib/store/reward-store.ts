@@ -153,7 +153,7 @@ export const useRewardStore = create<RewardState>((set, get) => ({
   recordConversation: async (messageCount: number) => {
     const services = await loadSupabaseServices();
     const childId = '00000000-0000-0000-0000-000000000001';
-    const result = await services.recordConversationCompleted(childId, messageCount);
+    const result = await services.recordConversationCompleted(childId, messageCount, []);
     await get().refresh();
 
     // 显示奖励通知
