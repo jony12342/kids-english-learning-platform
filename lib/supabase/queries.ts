@@ -31,7 +31,7 @@ export async function getChildById(childId: string): Promise<Children | null> {
     .from('children')
     .select('*')
     .eq('id', childId)
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error fetching child:', error);
@@ -71,7 +71,7 @@ export async function createChild(child: Tables['children']['Insert']): Promise<
     .from('children')
     .insert(child)
     .select()
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error creating child:', error);
@@ -159,7 +159,7 @@ export async function createReward(reward: Tables['rewards']['Insert']): Promise
     .from('rewards')
     .insert(reward)
     .select()
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error creating reward:', error);
@@ -204,7 +204,7 @@ export async function getUserBadge(childId: string, badgeId: string): Promise<Us
     .select('*')
     .eq('child_id', childId)
     .eq('badge_id', badgeId)
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error fetching user badge:', error);
@@ -231,7 +231,7 @@ export async function unlockBadge(
       progress: 100,
     })
     .select()
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error unlocking badge:', error);
@@ -257,7 +257,7 @@ export async function updateBadgeProgress(
     .eq('child_id', childId)
     .eq('badge_id', badgeId)
     .select()
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error updating badge progress:', error);
@@ -322,7 +322,7 @@ export async function addLearningWord(
     .from('learning_words')
     .insert(word)
     .select()
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error adding learning word:', error);
@@ -387,7 +387,7 @@ export async function createConversation(
     .from('conversations')
     .insert(conversation)
     .select()
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error creating conversation:', error);
@@ -409,7 +409,7 @@ export async function addConversationMessage(
     .from('conversation_messages')
     .insert(message)
     .select()
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error adding conversation message:', error);
@@ -457,13 +457,9 @@ export async function getTodayLearningStats(childId: string): Promise<LearningSt
     .select('*')
     .eq('child_id', childId)
     .eq('date', today)
-    .single();
+    .maybeSingle();
 
   if (error) {
-    if (error.code === 'PGRST116') {
-      // No stats for today yet
-      return null;
-    }
     console.error('Error fetching today\'s stats:', error);
     return null;
   }
@@ -483,7 +479,7 @@ export async function upsertLearningStats(
     .from('learning_stats')
     .upsert(stats)
     .select()
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error upserting learning stats:', error);

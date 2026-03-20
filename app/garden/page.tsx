@@ -40,7 +40,7 @@ export default function GardenPage() {
     const init = async () => {
       setIsClient(true);
       // 初始化奖励系统
-      await initialize('demo_child');
+      await initialize('00000000-0000-0000-0000-000000000001');
     };
     init();
   }, [initialize]);

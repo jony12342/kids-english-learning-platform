@@ -55,3 +55,6 @@ Thumbs.db
 *.bak
 
 yarn.lock
+# Environment variables
+.env.local
+.env*.local

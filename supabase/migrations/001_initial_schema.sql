@@ -326,6 +326,78 @@ CREATE POLICY "service_role_all_access" ON sessions
   USING (true)
   WITH CHECK (true);
 
+-- Anon (public) users can read and write data (for demo purposes)
+-- In production, you should restrict this to authenticated users only
+
+DROP POLICY IF EXISTS "anon_read_access" ON parents;
+CREATE POLICY "anon_read_access" ON parents
+  FOR SELECT
+  TO anon
+  USING (true);
+
+DROP POLICY IF EXISTS "anon_full_access" ON children;
+CREATE POLICY "anon_full_access" ON children
+  FOR ALL
+  TO anon
+  USING (true)
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "anon_full_access" ON learning_words;
+CREATE POLICY "anon_full_access" ON learning_words
+  FOR ALL
+  TO anon
+  USING (true)
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "anon_full_access" ON conversations;
+CREATE POLICY "anon_full_access" ON conversations
+  FOR ALL
+  TO anon
+  USING (true)
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "anon_full_access" ON conversation_messages;
+CREATE POLICY "anon_full_access" ON conversation_messages
+  FOR ALL
+  TO anon
+  USING (true)
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "anon_full_access" ON rewards;
+CREATE POLICY "anon_full_access" ON rewards
+  FOR ALL
+  TO anon
+  USING (true)
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "anon_full_access" ON user_badges;
+CREATE POLICY "anon_full_access" ON user_badges
+  FOR ALL
+  TO anon
+  USING (true)
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "anon_full_access" ON learning_stats;
+CREATE POLICY "anon_full_access" ON learning_stats
+  FOR ALL
+  TO anon
+  USING (true)
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "anon_full_access" ON vocabulary_progress;
+CREATE POLICY "anon_full_access" ON vocabulary_progress
+  FOR ALL
+  TO anon
+  USING (true)
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "anon_full_access" ON sessions;
+CREATE POLICY "anon_full_access" ON sessions
+  FOR ALL
+  TO anon
+  USING (true)
+  WITH CHECK (true);
+
 -- ============================================
 -- Sample Data (for testing) / 示例数据（测试用）
 -- ============================================

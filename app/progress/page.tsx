@@ -8,7 +8,7 @@ import { Home, Trophy, BookOpen, Target } from 'lucide-react';
 export default function ProgressPage() {
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
-  const childId = 'demo_child'; // TODO: Get from auth/context
+  const childId = '00000000-0000-0000-0000-000000000001'; // Demo child UUID
 
   useEffect(() => {
     setIsClient(true);

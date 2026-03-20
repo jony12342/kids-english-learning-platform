@@ -1,13 +1,29 @@
 import { create } from 'zustand';
 import { Badge, Reward, UserRewardStats } from '@/types/rewards';
-import {
-  getUserStats as getSupabaseUserStats,
-  awardStars as supabaseAwardStars,
-  recordWordLearned as supabaseRecordWordLearned,
-  recordConversationCompleted as supabaseRecordConversationCompleted,
-  getRewardHistory as getSupabaseRewardHistory,
-} from '@/lib/rewards/supabase-reward-service';
 import { getBadgeProgress } from '@/lib/rewards/badges';
+import { isSupabaseConfigured } from '@/lib/supabase/client';
+
+// Import services conditionally
+const loadSupabaseServices = async () => {
+  if (isSupabaseConfigured) {
+    return {
+      getUserStats: (await import('@/lib/rewards/supabase-reward-service')).getUserStats,
+      awardStars: (await import('@/lib/rewards/supabase-reward-service')).awardStars,
+      recordWordLearned: (await import('@/lib/rewards/supabase-reward-service')).recordWordLearned,
+      recordConversationCompleted: (await import('@/lib/rewards/supabase-reward-service')).recordConversationCompleted,
+      getRewardHistory: (await import('@/lib/rewards/supabase-reward-service')).getRewardHistory,
+    };
+  } else {
+    // Fallback to in-memory service
+    return {
+      getUserStats: (await import('@/lib/rewards/reward-service')).getUserStats,
+      awardStars: (await import('@/lib/rewards/reward-service')).awardStars,
+      recordWordLearned: (await import('@/lib/rewards/reward-service')).recordWordLearned,
+      recordConversationCompleted: (await import('@/lib/rewards/reward-service')).recordConversationCompleted,
+      getRewardHistory: (await import('@/lib/rewards/reward-service')).getRewardHistory,
+    };
+  }
+};
 
 interface RewardState {
   // 用户统计
@@ -78,9 +94,12 @@ export const useRewardStore = create<RewardState>((set, get) => ({
 
   // 初始化
   initialize: async (childId: string) => {
-    const stats = await getSupabaseUserStats(childId);
+    const services = await loadSupabaseServices();
+    // Use the actual UUID from database
+    const demoChildId = '00000000-0000-0000-0000-000000000001';
+    const stats = await services.getUserStats(demoChildId);
     const progress = getBadgeProgress(stats);
-    const history = await getSupabaseRewardHistory(childId);
+    const history = await services.getRewardHistory(demoChildId);
 
     set({
       stats,
@@ -91,9 +110,10 @@ export const useRewardStore = create<RewardState>((set, get) => ({
 
   // 授予星星
   awardStars: async (achievementType: string, metadata?) => {
-    // TODO: 这里需要 childId，暂时使用固定值
-    const childId = 'demo_child';
-    const result = await supabaseAwardStars(childId, achievementType as any, metadata);
+    const services = await loadSupabaseServices();
+    // Use the actual UUID from database
+    const childId = '00000000-0000-0000-0000-000000000001';
+    const result = await services.awardStars(childId, achievementType as any, metadata);
 
     // 刷新数据
     await get().refresh();
@@ -123,15 +143,17 @@ export const useRewardStore = create<RewardState>((set, get) => ({
 
   // 记录学习单词
   recordWord: async (word: string, category: string) => {
-    const childId = 'demo_child';
-    await supabaseRecordWordLearned(childId, word, category);
+    const services = await loadSupabaseServices();
+    const childId = '00000000-0000-0000-0000-000000000001';
+    await services.recordWordLearned(childId, word, category);
     await get().refresh();
   },
 
   // 记录完成对话
   recordConversation: async (messageCount: number) => {
-    const childId = 'demo_child';
-    const result = await supabaseRecordConversationCompleted(childId, messageCount, []);
+    const services = await loadSupabaseServices();
+    const childId = '00000000-0000-0000-0000-000000000001';
+    const result = await services.recordConversationCompleted(childId, messageCount);
     await get().refresh();
 
     // 显示奖励通知
@@ -170,10 +192,11 @@ export const useRewardStore = create<RewardState>((set, get) => ({
 
   // 刷新数据
   refresh: async () => {
-    const childId = 'demo_child';
-    const stats = await getSupabaseUserStats(childId);
+    const services = await loadSupabaseServices();
+    const childId = '00000000-0000-0000-0000-000000000001';
+    const stats = await services.getUserStats(childId);
     const progress = getBadgeProgress(stats);
-    const history = await getSupabaseRewardHistory(childId);
+    const history = await services.getRewardHistory(childId);
 
     set({
       stats,
