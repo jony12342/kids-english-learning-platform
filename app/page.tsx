@@ -15,7 +15,7 @@ export default function HomePage() {
         {/* 主要学习场景 - 大卡片 */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-white mb-4 text-center">🎮 学习场景</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {/* 单词学习 */}
             <a
               href="/words"
@@ -120,6 +120,24 @@ export default function HomePage() {
               </p>
               <div className="flex items-center gap-2 text-primary-green font-bold">
                 <span>开始游戏</span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </a>
+
+            {/* 泡泡射击 */}
+            <a
+              href="/bubble-game"
+              className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-xl transform transition-all hover:scale-105 hover:shadow-2xl active:scale-95 cursor-pointer border-4 border-white/30"
+            >
+              <div className="text-7xl mb-4 animate-wiggle group-hover:scale-110 transition-transform">🫧</div>
+              <h2 className="text-2xl font-bold text-primary-blue mb-2">
+                泡泡射击
+              </h2>
+              <p className="text-gray-600 mb-4">
+                戳泡泡学单词，超好玩！
+              </p>
+              <div className="flex items-center gap-2 text-primary-green font-bold">
+                <span>开始玩</span>
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </div>
             </a>
