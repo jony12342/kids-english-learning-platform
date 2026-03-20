@@ -12,24 +12,97 @@ export default function HomePage() {
           跟AI老师一起快乐学英语！
         </p>
 
-        {/* 欢迎卡片 */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl mb-8">
-          <div className="text-6xl mb-4 animate-wiggle">
-            🦉
-          </div>
-          <h2 className="font-size-medium font-bold text-primary-blue mb-4">
-            欢迎来到魔法花园！
-          </h2>
-          <p className="font-size-small text-gray-600 mb-6">
-            我是猫头鹰老师Owl，今天我们要一起学单词哦！
-          </p>
-
-          {/* 开始按钮 */}
+        {/* 学习场景选择 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {/* 魔法花园 */}
           <a
             href="/garden"
-            className="min-touch-target bg-primary-green hover:bg-primary-green/80 text-white font-size-medium font-bold py-4 px-8 rounded-full shadow-lg transform transition hover:scale-105 active:scale-95"
+            className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg transform transition hover:scale-105 active:scale-95 cursor-pointer"
           >
-            开始学习 🎉
+            <div className="text-6xl mb-4 animate-wiggle">🌸</div>
+            <h2 className="font-size-medium font-bold text-primary-blue mb-2">
+              魔法花园
+            </h2>
+            <p className="font-size-small text-gray-600 mb-4">
+              跟猫头鹰老师一起学单词！
+            </p>
+            <div className="flex items-center gap-2 text-primary-green">
+              <span className="font-bold">开始学习</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          {/* 探险森林 */}
+          <a
+            href="/forest"
+            className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg transform transition hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <div className="text-6xl mb-4 animate-wiggle">🌲</div>
+            <h2 className="font-size-medium font-bold text-primary-blue mb-2">
+              探险森林
+            </h2>
+            <p className="font-size-small text-gray-600 mb-4">
+              跟森林动物对话练习！
+            </p>
+            <div className="flex items-center gap-2 text-primary-green">
+              <span className="font-bold">开始探险</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          {/* 快乐厨房 */}
+          <a
+            href="/kitchen"
+            className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg transform transition hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <div className="text-6xl mb-4 animate-wiggle">🧁</div>
+            <h2 className="font-size-medium font-bold text-primary-blue mb-2">
+              快乐厨房
+            </h2>
+            <p className="font-size-small text-gray-600 mb-4">
+              做蛋糕学英语词汇！
+            </p>
+            <div className="flex items-center gap-2 text-primary-green">
+              <span className="font-bold">开始做蛋糕</span>
+              <span>→</span>
+            </div>
+          </a>
+        </div>
+
+        {/* 每日任务和查看进度 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <a
+            href="/tasks"
+            className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-lg transform transition hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <div className="flex items-center justify-center gap-3">
+              <div className="text-4xl">📋</div>
+              <div className="text-left">
+                <div className="font-size-small font-bold text-primary-blue">
+                  每日任务
+                </div>
+                <div className="text-xs text-gray-600">
+                  完成任务赢取奖励
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="/progress"
+            className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-lg transform transition hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <div className="flex items-center justify-center gap-3">
+              <div className="text-4xl">📊</div>
+              <div className="text-left">
+                <div className="font-size-small font-bold text-primary-blue">
+                  查看学习进度
+                </div>
+                <div className="text-xs text-gray-600">
+                  了解你的学习成果
+                </div>
+              </div>
+            </div>
           </a>
         </div>
 
