@@ -10,7 +10,6 @@ const path = require('path');
 
 // 读取单词数据
 const wordsDataPath = path.join(__dirname, '../data/words.ts');
-
 const wordsData = fs.readFileSync(wordsDataPath, 'utf8');
 
 // 提取所有单词信息
