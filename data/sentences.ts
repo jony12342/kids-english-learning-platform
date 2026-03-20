@@ -5,7 +5,7 @@
  * 适合3-6岁儿童学习的日常英语短句
  */
 
-import { Sentence, SentenceCategory, WordDifficulty } from './vocabulary';
+import { Sentence, SentenceCategory, WordDifficulty } from '../types/vocabulary';
 
 /**
  * EASY SENTENCES (40) - 简单短句

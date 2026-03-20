@@ -3,7 +3,7 @@
  * 语音和发音评估类型定义
  */
 
-import { PronunciationResult } from './vocabulary';
+import { PronunciationResult } from '../../types/vocabulary';
 
 // 重新导出 vocabulary 类型
 export type { PronunciationResult };

@@ -6,7 +6,7 @@
  * 图片搜索关键词: {word} animal/food/object/etc
  */
 
-import { Word, WordCategory, WordDifficulty } from './vocabulary';
+import { Word, WordCategory, WordDifficulty } from '../types/vocabulary';
 
 /**
  * EASY WORDS (150 words) - 简单单词
