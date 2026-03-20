@@ -2,6 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useChild } from '@/lib/hooks/use-child';
+import {
+  getParentSettingsClient,
+  getOrCreateTodayStatisticsClient,
+  getWeeklyLearningStatsClient,
+  getRecentActivitiesClient,
+  upsertParentSettingsClient,
+} from '@/lib/supabase/client-queries';
 import {
   ParentSettings,
   LearningStatistics,
@@ -17,16 +25,30 @@ import { Home, Shield, Clock, BarChart3, Settings, Lock, Eye, EyeOff } from 'luc
 
 export default function ParentPage() {
   const router = useRouter();
+  const { childId, child } = useChild();
   const [isClient, setIsClient] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showPinInput, setShowPinInput] = useState(true);
   const [pinInput, setPinInput] = useState('');
   const [currentTab, setCurrentTab] = useState<'dashboard' | 'settings' | 'reports'>('dashboard');
   const [dashboard, setDashboard] = useState<ParentDashboard | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  useEffect(() => {
+    if (childId) {
+      setLoading(false);
+    }
+  }, [childId]);
+
+  useEffect(() => {
+    if (childId && isAuthenticated) {
+      loadDashboardData();
+    }
+  }, [childId, isAuthenticated]);
 
   const handlePinSubmit = () => {
     // Demo: accept any 4-digit PIN
@@ -37,80 +59,91 @@ export default function ParentPage() {
     }
   };
 
-  const loadDashboardData = () => {
-    // Mock data for demo
-    const mockDashboard: ParentDashboard = {
-      childInfo: {
-        name: '小明',
-        age: 6,
-        avatar: '🦉'
-      },
-      todayStats: {
-        wordsLearned: 8,
-        conversationsCompleted: 3,
-        starsEarned: 15,
-        timeSpentMinutes: 25
-      },
-      weeklyStats: {
-        wordsLearned: 45,
-        conversationsCompleted: 18,
-        starsEarned: 85,
-        timeSpentMinutes: 180,
-        tasksCompleted: 12,
-        badgesEarned: 3
-      },
-      recentActivity: [
-        {
-          id: '1',
-          childId: 'mock',
-          activityType: 'login',
-          activityDetails: {},
-          timestamp: new Date(Date.now() - 1000 * 60 * 30)
-        },
-        {
-          id: '2',
-          childId: 'mock',
-          activityType: 'scene_visit',
-          activityDetails: { scene: 'garden', duration: 15 },
-          timestamp: new Date(Date.now() - 1000 * 60 * 25)
-        },
-        {
-          id: '3',
-          childId: 'mock',
-          activityType: 'task_complete',
-          activityDetails: { taskType: 'words' },
-          timestamp: new Date(Date.now() - 1000 * 60 * 20)
-        },
-        {
-          id: '4',
-          childId: 'mock',
-          activityType: 'scene_visit',
-          activityDetails: { scene: 'forest', duration: 10 },
-          timestamp: new Date(Date.now() - 1000 * 60 * 10)
-        }
-      ],
-      settings: {
-        id: '1',
-        childId: 'mock',
-        dailyTimeLimit: 30,
-        allowedHours: [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-        contentRestrictions: {
-          allowGarden: true,
-          allowForest: true,
-          allowKitchen: true,
-          maxDifficulty: 'all'
-        },
-        notificationsEnabled: true,
-        weeklyReportDay: 'sunday',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }
-    };
+  const loadDashboardData = async () => {
+    if (!childId) {
+      setLoading(false);
+      return;
+    }
 
-    setDashboard(mockDashboard);
+    try {
+      setLoading(true);
+
+      // Load today's statistics
+      const todayStats = await getOrCreateTodayStatisticsClient(childId);
+
+      // Load weekly statistics
+      const weeklyStatsList = await getWeeklyLearningStatsClient(childId);
+
+      // Calculate weekly totals
+      const weeklyStats = {
+        wordsLearned: weeklyStatsList.reduce((sum, s) => sum + (s.words_learned || 0), 0),
+        conversationsCompleted: weeklyStatsList.reduce((sum, s) => sum + (s.conversations_completed || 0), 0),
+        starsEarned: weeklyStatsList.reduce((sum, s) => sum + (s.stars_earned || 0), 0),
+        timeSpentMinutes: weeklyStatsList.reduce((sum, s) => sum + (s.time_spent_minutes || 0), 0),
+        tasksCompleted: weeklyStatsList.reduce((sum, s) => sum + (s.tasks_completed || 0), 0),
+        badgesEarned: weeklyStatsList.reduce((sum, s) => sum + ((s.badges_earned as string[])?.length || 0), 0),
+      };
+
+      // Load recent activities
+      const recentActivities = await getRecentActivitiesClient(childId, 10);
+
+      // Load parent settings
+      let settings = await getParentSettingsClient(childId);
+
+      // Create default settings if not exist
+      if (!settings) {
+        settings = await upsertParentSettingsClient(childId, DEFAULT_PARENT_SETTINGS);
+      }
+
+      // Build dashboard
+      const dashboardData: ParentDashboard = {
+        childInfo: {
+          name: child?.name || '测试儿童',
+          age: 6,
+          avatar: '🦉'
+        },
+        todayStats: {
+          wordsLearned: todayStats?.words_learned || 0,
+          conversationsCompleted: todayStats?.conversations_completed || 0,
+          starsEarned: todayStats?.stars_earned || 0,
+          timeSpentMinutes: todayStats?.time_spent_minutes || 0
+        },
+        weeklyStats,
+        recentActivity: recentActivities.map((activity) => ({
+          id: activity.id,
+          childId: activity.child_id,
+          activityType: activity.activity_type,
+          activityDetails: activity.activity_details || {},
+          timestamp: new Date(activity.timestamp)
+        })),
+        settings: settings ? {
+          id: settings.id,
+          childId: settings.child_id,
+          dailyTimeLimit: settings.daily_time_limit ?? DEFAULT_PARENT_SETTINGS.dailyTimeLimit,
+          allowedHours: settings.allowed_hours ?? DEFAULT_PARENT_SETTINGS.allowedHours,
+          contentRestrictions: settings.content_restrictions ?? DEFAULT_PARENT_SETTINGS.contentRestrictions,
+          notificationsEnabled: settings.notifications_enabled ?? DEFAULT_PARENT_SETTINGS.notificationsEnabled,
+          weeklyReportDay: settings.weekly_report_day ?? DEFAULT_PARENT_SETTINGS.weeklyReportDay,
+          createdAt: new Date(settings.created_at),
+          updatedAt: new Date(settings.updated_at)
+        } : {
+          id: '',
+          childId: childId || '',
+          ...DEFAULT_PARENT_SETTINGS,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        }
+      };
+
+      setDashboard(dashboardData);
+    } catch (error) {
+      console.error('Failed to load dashboard data:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  if (!isClient) {
+  if (!isClient || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200">
         <div className="text-4xl font-bold text-indigo-700 animate-pulse">

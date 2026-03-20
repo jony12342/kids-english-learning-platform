@@ -2,6 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useChild } from '@/lib/hooks/use-child';
+import {
+  getCharactersClient,
+  getActiveCharacterClient,
+  upsertCharacterClient,
+  getOrCreateTodayStatisticsClient,
+  logActivityClient
+} from '@/lib/supabase/client-queries';
 import {
   AVATAR_CONFIGURATIONS,
   CHARACTER_ACCESSORIES,
@@ -17,7 +25,9 @@ import { Home, Palette, Sparkles, Check, ChevronRight } from 'lucide-react';
 
 export default function CharacterPage() {
   const router = useRouter();
+  const { childId } = useChild();
   const [isClient, setIsClient] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   // Character state
   const [characterName, setCharacterName] = useState('My Character');
@@ -31,18 +41,68 @@ export default function CharacterPage() {
   const [currentStep, setCurrentStep] = useState<'avatar' | 'colors' | 'accessories' | 'preview'>('avatar');
   const [isSaving, setIsSaving] = useState(false);
 
-  // User stats (mock data for now)
-  const [userStats] = useState({
-    totalStars: 25,
-    wordsLearned: 15,
-    conversationsCompleted: 5
+  // User stats from database
+  const [userStats, setUserStats] = useState({
+    totalStars: 0,
+    wordsLearned: 0,
+    conversationsCompleted: 0
   });
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  if (!isClient) {
+  useEffect(() => {
+    if (childId) {
+      loadData();
+      logActivityClient(childId, 'scene_visit', { scene: 'character' });
+    }
+  }, [childId]);
+
+  async function loadData() {
+    if (!childId) {
+      setLoading(false);
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      // Load today's statistics
+      const stats = await getOrCreateTodayStatisticsClient(childId);
+
+      if (stats) {
+        setUserStats({
+          totalStars: stats.stars_earned || 0,
+          wordsLearned: stats.words_learned || 0,
+          conversationsCompleted: stats.conversations_completed || 0
+        });
+      }
+
+      // Load active character if exists
+      const activeCharacter = await getActiveCharacterClient(childId);
+
+      if (activeCharacter) {
+        // Populate form with existing character data
+        setCharacterName(activeCharacter.name || 'My Character');
+        setAvatarType(activeCharacter.avatar_type as AvatarType);
+
+        if (activeCharacter.color_config) {
+          setPrimaryColor(activeCharacter.color_config.primary || '#FF6B6B');
+          setSecondaryColor(activeCharacter.color_config.secondary || '#4ECDC4');
+          setAccentColor(activeCharacter.color_config.accent || '#FFE66D');
+        }
+
+        setSelectedAccessories(activeCharacter.accessory_ids || []);
+      }
+    } catch (error) {
+      console.error('Failed to load character data:', error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  if (!isClient || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-200 via-pink-200 to-red-200">
         <div className="text-4xl font-bold text-purple-700 animate-pulse">
@@ -62,15 +122,44 @@ export default function CharacterPage() {
     }
   };
 
-  const handleSaveCharacter = () => {
+  const handleSaveCharacter = async () => {
+    if (!childId) {
+      alert('Unable to save character: No user ID found');
+      return;
+    }
+
     setIsSaving(true);
 
-    // Simulate saving
-    setTimeout(() => {
+    try {
+      // Save character to database
+      const colorConfig = {
+        primary: primaryColor,
+        secondary: secondaryColor,
+        accent: accentColor
+      };
+
+      const characterData = {
+        name: characterName,
+        avatar_type: avatarType,
+        color_config: colorConfig,
+        accessory_ids: selectedAccessories,
+        is_active: true
+      };
+
+      const savedCharacter = await upsertCharacterClient(childId, characterData);
+
+      if (savedCharacter) {
+        alert('Character saved successfully! 🎉');
+        router.push('/');
+      } else {
+        alert('Failed to save character. Please try again.');
+      }
+    } catch (error) {
+      console.error('Failed to save character:', error);
+      alert('Failed to save character. Please try again.');
+    } finally {
       setIsSaving(false);
-      alert('Character saved successfully! 🎉');
-      router.push('/');
-    }, 1000);
+    }
   };
 
   const canAccessAccessory = (accessory: CharacterAccessory) => {

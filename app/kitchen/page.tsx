@@ -2,7 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useChild } from '@/lib/hooks/use-child';
 import { useSpeech } from '@/lib/hooks/use-speech';
+import {
+  getOrCreateTodayStatisticsClient,
+  updateTodayStatisticsClient,
+  logActivityClient
+} from '@/lib/supabase/client-queries';
 import {
   CAKE_RECIPES,
   KITCHEN_INGREDIENTS,
@@ -17,7 +23,9 @@ import { Home, Volume2, ArrowLeft, CheckCircle2, Circle, Play, RotateCcw } from 
 
 export default function KitchenPage() {
   const router = useRouter();
+  const { childId } = useChild();
   const [isClient, setIsClient] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [selectedRecipe, setSelectedRecipe] = useState<CakeRecipe | null>(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
@@ -27,6 +35,7 @@ export default function KitchenPage() {
   const [isBaking, setIsBaking] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [starsEarned, setStarsEarned] = useState(0);
+  const [totalStars, setTotalStars] = useState(0);
 
   const { speak, isSpeaking } = useSpeech();
 
@@ -34,7 +43,49 @@ export default function KitchenPage() {
     setIsClient(true);
   }, []);
 
-  if (!isClient) {
+  useEffect(() => {
+    if (childId) {
+      loadStatistics();
+      logActivityClient(childId, 'scene_visit', { scene: 'kitchen' });
+    }
+  }, [childId]);
+
+  async function loadStatistics() {
+    if (!childId) {
+      setLoading(false);
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const stats = await getOrCreateTodayStatisticsClient(childId);
+      if (stats) {
+        setTotalStars(stats.stars_earned || 0);
+      }
+    } catch (error) {
+      console.error('Failed to load statistics:', error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function saveProgress() {
+    if (!childId) return;
+
+    try {
+      // Update statistics
+      const wordsLearned = collectedIngredients.length + collectedUtensils.length + learnedVerbs.length;
+      await updateTodayStatisticsClient(childId, {
+        words_learned: wordsLearned,
+        stars_earned: totalStars + starsEarned,
+        scenes_visited: ['kitchen']
+      });
+    } catch (error) {
+      console.error('Failed to save progress:', error);
+    }
+  }
+
+  if (!isClient || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-200 via-amber-200 to-yellow-200">
         <div className="text-4xl font-bold text-orange-700 animate-pulse">
@@ -141,6 +192,9 @@ export default function KitchenPage() {
       const bonusStars = selectedRecipe?.difficulty === 'easy' ? 5 : selectedRecipe?.difficulty === 'medium' ? 10 : 15;
       setStarsEarned(starsEarned + bonusStars);
 
+      // Save progress to database
+      saveProgress();
+
       speak('Amazing! Your cake is ready! Great job!');
     } else {
       // Move to next step
@@ -208,8 +262,12 @@ export default function KitchenPage() {
 
           <div className="flex items-center gap-4">
             <div className="text-center bg-white rounded-full px-4 py-2 shadow-md">
-              <div className="text-sm text-gray-600">Stars</div>
+              <div className="text-sm text-gray-600">Session</div>
               <div className="text-xl font-bold text-yellow-500">⭐ {starsEarned}</div>
+            </div>
+            <div className="text-center bg-white rounded-full px-4 py-2 shadow-md">
+              <div className="text-sm text-gray-600">Total</div>
+              <div className="text-xl font-bold text-yellow-500">⭐ {totalStars + starsEarned}</div>
             </div>
           </div>
         </div>
