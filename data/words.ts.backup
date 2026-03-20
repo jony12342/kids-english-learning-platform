@@ -1,0 +1,3484 @@
+/**
+ * Vocabulary Word Library
+ * 词汇单词库（500个常用单词）
+ *
+ * 使用 Unsplash API 获取相关图片
+ * 图片搜索关键词: {word} animal/food/object/etc
+ */
+
+import { Word, WordCategory, WordDifficulty } from './vocabulary';
+
+/**
+ * EASY WORDS (150 words) - 简单单词
+ * 适合初学者，3-4岁
+ */
+export const EASY_WORDS: Word[] = [
+  // Animals (20)
+  {
+    wordId: 'word_001',
+    word: 'dog',
+    chinese: '狗',
+    category: 'animals',
+    difficulty: 'easy',
+    phonetic: '/dɔːɡ/',
+    exampleSentence: 'I have a dog.',
+    imageUrl: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_002',
+    word: 'cat',
+    chinese: '猫',
+    category: 'animals',
+    difficulty: 'easy',
+    phonetic: '/kæt/',
+    exampleSentence: 'The cat is cute.',
+    imageUrl: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_003',
+    word: 'bird',
+    chinese: '鸟',
+    category: 'animals',
+    difficulty: 'easy',
+    phonetic: '/bɜːrd/',
+    exampleSentence: 'Look at the bird!',
+    imageUrl: 'https://images.unsplash.com/photo-1444464666168-49d633b86797?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_004',
+    word: 'fish',
+    chinese: '鱼',
+    category: 'animals',
+    difficulty: 'easy',
+    phonetic: '/fɪʃ/',
+    exampleSentence: 'I like fish.',
+    imageUrl: 'https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_005',
+    word: 'duck',
+    chinese: '鸭子',
+    category: 'animals',
+    difficulty: 'easy',
+    phonetic: '/dʌk/',
+    exampleSentence: 'The duck says quack.',
+    imageUrl: 'https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_006',
+    word: 'cow',
+    chinese: '奶牛',
+    category: 'animals',
+    difficulty: 'easy',
+    phonetic: '/kaʊ/',
+    exampleSentence: 'The cow gives milk.',
+    imageUrl: 'https://images.unsplash.com/photo-1570042225831-71c06a5e0975?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_007',
+    word: 'pig',
+    chinese: '猪',
+    category: 'animals',
+    difficulty: 'easy',
+    phonetic: '/pɪɡ/',
+    exampleSentence: 'The pig is pink.',
+    imageUrl: 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_008',
+    word: 'horse',
+    chinese: '马',
+    category: 'animals',
+    difficulty: 'easy',
+    phonetic: '/hɔːrs/',
+    exampleSentence: 'The horse runs fast.',
+    imageUrl: 'https://images.unsplash.com/photo-1553284965-83fd3e5faaf7?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_009',
+    word: 'sheep',
+    chinese: '羊',
+    category: 'animals',
+    difficulty: 'easy',
+    phonetic: '/ʃiːp/',
+    exampleSentence: 'The sheep says baa.',
+    imageUrl: 'https://images.unsplash.com/photo-1517522863827-ffb9c2429102?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_010',
+    word: 'chicken',
+    chinese: '鸡',
+    category: 'animals',
+    difficulty: 'easy',
+    phonetic: '/ˈtʃɪkɪn/',
+    exampleSentence: 'The chicken lays eggs.',
+    imageUrl: 'https://images.unsplash.com/photo-1583095987594-7bc180e0632d?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Food (20)
+  {
+    wordId: 'word_011',
+    word: 'apple',
+    chinese: '苹果',
+    category: 'food',
+    difficulty: 'easy',
+    phonetic: '/ˈæpəl/',
+    exampleSentence: 'I like apples.',
+    imageUrl: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_012',
+    word: 'banana',
+    chinese: '香蕉',
+    category: 'food',
+    difficulty: 'easy',
+    phonetic: '/bəˈnænə/',
+    exampleSentence: 'Bananas are yellow.',
+    imageUrl: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_013',
+    word: 'orange',
+    chinese: '橙子',
+    category: 'food',
+    difficulty: 'easy',
+    phonetic: '/ˈɔːrɪndʒ/',
+    exampleSentence: 'Oranges are sweet.',
+    imageUrl: 'https://images.unsplash.com/photo-1547514701-4276213aef98d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_014',
+    word: 'grape',
+    chinese: '葡萄',
+    category: 'food',
+    difficulty: 'easy',
+    phonetic: '/ɡreɪp/',
+    exampleSentence: 'I love grapes!',
+    imageUrl: 'https://images.unsplash.com/photo-1596363503279-3f8815fc13fc?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_015',
+    word: 'bread',
+    chinese: '面包',
+    category: 'food',
+    difficulty: 'easy',
+    phonetic: '/brɛd/',
+    exampleSentence: 'I eat bread for breakfast.',
+    imageUrl: 'https://images.unsplash.com/photo-1509440157897-6243f02e3b71?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_016',
+    word: 'milk',
+    chinese: '牛奶',
+    category: 'food',
+    difficulty: 'easy',
+    phonetic: '/mɪlk/',
+    exampleSentence: 'Milk is white.',
+    imageUrl: 'https://images.unsplash.com/photo-1563636619-e9143da077ef?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_017',
+    word: 'egg',
+    chinese: '鸡蛋',
+    category: 'food',
+    difficulty: 'easy',
+    phonetic: '/eɡ/',
+    exampleSentence: 'I eat eggs for breakfast.',
+    imageUrl: 'https://images.unsplash.com/photo-1582722872745-e320c4c50a5a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_018',
+    word: 'cake',
+    chinese: '蛋糕',
+    category: 'food',
+    difficulty: 'easy',
+    phonetic: '/keɪk/',
+    exampleSentence: 'The cake is sweet.',
+    imageUrl: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_019',
+    word: 'cookie',
+    chinese: '饼干',
+    category: 'food',
+    difficulty: 'easy',
+    phonetic: '/ˈkʊki/',
+    exampleSentence: 'I want a cookie.',
+    imageUrl: 'https://images.unsplash.com/photo-1499636136461-9c8db9f1a37d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_020',
+    word: 'water',
+    chinese: '水',
+    category: 'food',
+    difficulty: 'easy',
+    phonetic: '/ˈwɔːtər/',
+    exampleSentence: 'I drink water.',
+    imageUrl: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Colors (10)
+  {
+    wordId: 'word_021',
+    word: 'red',
+    chinese: '红色',
+    category: 'colors',
+    difficulty: 'easy',
+    phonetic: '/red/',
+    exampleSentence: 'The apple is red.',
+    imageUrl: 'https://images.unsplash.com/photo-1583095987594-7bc180e0632d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_022',
+    word: 'blue',
+    chinese: '蓝色',
+    category: 'colors',
+    difficulty: 'easy',
+    phonetic: '/bluː/',
+    exampleSentence: 'The sky is blue.',
+    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_023',
+    word: 'yellow',
+    chinese: '黄色',
+    category: 'colors',
+    difficulty: 'easy',
+    phonetic: '/ˈjɛloʊ/',
+    exampleSentence: 'The sun is yellow.',
+    imageUrl: 'https://images.unsplash.com/photo-1473187983305-3a2818a5f629?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_024',
+    word: 'green',
+    chinese: '绿色',
+    category: 'colors',
+    difficulty: 'easy',
+    phonetic: '/ɡriːn/',
+    exampleSentence: 'The grass is green.',
+    imageUrl: 'https://images.unsplash.com/photo-1462275646964-a0e3571b4c76?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_025',
+    word: 'orange',
+    chinese: '橙色',
+    category: 'colors',
+    difficulty: 'easy',
+    phonetic: '/ˈɔːrɪndʒ/',
+    exampleSentence: 'Oranges are orange.',
+    imageUrl: 'https://images.unsplash.com/photo-1547514701-4276213aef98d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_026',
+    word: 'purple',
+    chinese: '紫色',
+    category: 'colors',
+    difficulty: 'easy',
+    phonetic: '/ˈpɜːrpəl/',
+    exampleSentence: 'Grapes can be purple.',
+    imageUrl: 'https://images.unsplash.com/photo-1531253175289-336822c8e662?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_027',
+    word: 'pink',
+    chinese: '粉色',
+    category: 'colors',
+    difficulty: 'easy',
+    phonetic: '/pɪŋk/',
+    exampleSentence: 'The flower is pink.',
+    imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_028',
+    word: 'black',
+    chinese: '黑色',
+    category: 'colors',
+    difficulty: 'easy',
+    phonetic: '/blæk/',
+    exampleSentence: 'The cat is black.',
+    imageUrl: 'https://images.unsplash.com/photo-1618172193763-c511deb635ca?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_029',
+    word: 'white',
+    chinese: '白色',
+    category: 'colors',
+    difficulty: 'easy',
+    phonetic: '/waɪt/',
+    exampleSentence: 'Snow is white.',
+    imageUrl: 'https://images.unsplash.com/photo-1487530811176-3780de880c2f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_030',
+    word: 'brown',
+    chinese: '棕色',
+    category: 'colors',
+    difficulty: 'easy',
+    phonetic: '/braʊn/',
+    exampleSentence: 'The dog is brown.',
+    imageUrl: 'https://images.unsplash.com/photo-1618172193763-c511deb635ca?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Numbers (10)
+  {
+    wordId: 'word_031',
+    word: 'one',
+    chinese: '一',
+    category: 'numbers',
+    difficulty: 'easy',
+    phonetic: '/wʌn/',
+    exampleSentence: 'I have one dog.',
+    imageUrl: 'https://images.unsplash.com/photo-1633159890181-eb66b2b6d086?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_032',
+    word: 'two',
+    chinese: '二',
+    category: 'numbers',
+    difficulty: 'easy',
+    phonetic: '/tuː/',
+    exampleSentence: 'I see two birds.',
+    imageUrl: 'https://images.unsplash.com/photo-1633159890181-eb66b2b6d086?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_033',
+    word: 'three',
+    chinese: '三',
+    category: 'numbers',
+    difficulty: 'easy',
+    phonetic: '/θriː/',
+    exampleSentence: 'I have three cats.',
+    imageUrl: 'https://images.unsplash.com/photo-1633159890181-eb66b2b6d086?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_034',
+    word: 'four',
+    chinese: '四',
+    category: 'numbers',
+    difficulty: 'easy',
+    phonetic: '/fɔːr/',
+    exampleSentence: 'I see four ducks.',
+    imageUrl: 'https://images.unsplash.com/photo-1633159890181-eb66b2b6d086?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_035',
+    word: 'five',
+    chinese: '五',
+    category: 'numbers',
+    difficulty: 'easy',
+    phonetic: '/faɪv/',
+    exampleSentence: 'Five apples!',
+    imageUrl: 'https://images.unsplash.com/photo-1633159890181-eb66b2b6d086?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_036',
+    word: 'six',
+    chinese: '六',
+    category: 'numbers',
+    difficulty: 'easy',
+    phonetic: '/sɪks/',
+    exampleSentence: 'Six eggs.',
+    imageUrl: 'https://images.unsplash.com/photo-1633159890181-eb66b2b6d086?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_037',
+    word: 'seven',
+    chinese: '七',
+    category: 'numbers',
+    difficulty: 'easy',
+    phonetic: '/ˈsɛvən/',
+    exampleSentence: 'Seven days in a week.',
+    imageUrl: 'https://images.unsplash.com/photo-1633159890181-eb66b2b6d086?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_038',
+    word: 'eight',
+    chinese: '八',
+    category: 'numbers',
+    difficulty: 'easy',
+    phonetic: '/eɪt/',
+    exampleSentence: 'Eight o\'clock.',
+    imageUrl: 'https://images.unsplash.com/photo-1633159890181-eb66b2b6d086?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_039',
+    word: 'nine',
+    chinese: '九',
+    category: 'numbers',
+    difficulty: 'easy',
+    phonetic: '/naɪn/',
+    exampleSentence: 'Nine cats.',
+    imageUrl: 'https://images.unsplash.com/photo-1633159890181-eb66b2b6d086?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_040',
+    word: 'ten',
+    chinese: '十',
+    category: 'numbers',
+    difficulty: 'easy',
+    phonetic: '/tɛn/',
+    exampleSentence: 'Ten fingers!',
+    imageUrl: 'https://images.unsplash.com/photo-1633159890181-eb66b2b6d086?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Family (10)
+  {
+    wordId: 'word_041',
+    word: 'mom',
+    chinese: '妈妈',
+    category: 'family',
+    difficulty: 'easy',
+    phonetic: '/mɑm/',
+    exampleSentence: 'I love my mom.',
+    imageUrl: 'https://images.unsplash.com/photo-1544717305-2782549ded519?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_042',
+    word: 'dad',
+    chinese: '爸爸',
+    category: 'family',
+    difficulty: 'easy',
+    phonetic: '/dæd/',
+    exampleSentence: 'I love my dad.',
+    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_043',
+    word: 'baby',
+    chinese: '宝宝',
+    category: 'family',
+    difficulty: 'easy',
+    phonetic: '/ˈbeɪbi/',
+    exampleSentence: 'The baby is cute.',
+    imageUrl: 'https://images.unsplash.com/photo-1519689680058-324329e70ba5?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_044',
+    word: 'boy',
+    chinese: '男孩',
+    category: 'family',
+    difficulty: 'easy',
+    phonetic: '/bɔɪ/',
+    exampleSentence: 'He is a boy.',
+    imageUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_045',
+    word: 'girl',
+    chinese: '女孩',
+    category: 'family',
+    difficulty: 'easy',
+    phonetic: '/ɡɜːl/',
+    exampleSentence: 'She is a girl.',
+    imageUrl: 'https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_046',
+    word: 'brother',
+    chinese: '哥哥/弟弟',
+    category: 'family',
+    difficulty: 'easy',
+    phonetic: '/ˈbrʌðər/',
+    exampleSentence: 'This is my brother.',
+    imageUrl: 'https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_047',
+    word: 'sister',
+    chinese: '姐姐/妹妹',
+    category: 'family',
+    difficulty: 'easy',
+    phonetic: '/ˈsɪstər/',
+    exampleSentence: 'This is my sister.',
+    imageUrl: 'https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_048',
+    word: 'grandma',
+    chinese: '奶奶/外婆',
+    category: 'family',
+    difficulty: 'easy',
+    phonetic: '/ˈɡrændmɑː/',
+    exampleSentence: 'I love my grandma.',
+    imageUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_049',
+    word: 'grandpa',
+    chinese: '爷爷/外公',
+    category: 'family',
+    difficulty: 'easy',
+    phonetic: '/ˈɡrændpɑː/',
+    exampleSentence: 'I love my grandpa.',
+    imageUrl: 'https://images.unsplash.com/photo-1581595218315-8abfe7b655af?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_050',
+    word: 'friend',
+    chinese: '朋友',
+    category: 'family',
+    difficulty: 'easy',
+    phonetic: '/frɛnd/',
+    exampleSentence: 'She is my friend.',
+    imageUrl: 'https://images.unsplash.com/photo-1519689680058-324329e70ba5?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Body (20)
+  {
+    wordId: 'word_051',
+    word: 'eye',
+    chinese: '眼睛',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/aɪ/',
+    exampleSentence: 'I have two eyes.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_052',
+    word: 'ear',
+    chinese: '耳朵',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/ɪr/',
+    exampleSentence: 'I can hear with my ears.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_053',
+    word: 'nose',
+    chinese: '鼻子',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/noʊz/',
+    exampleSentence: 'I smell with my nose.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_054',
+    word: 'mouth',
+    chinese: '嘴巴',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/maʊθ/',
+    exampleSentence: 'I eat with my mouth.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_055',
+    word: 'hand',
+    chinese: '手',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/hænd/',
+    exampleSentence: 'I wave my hand.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_056',
+    word: 'foot',
+    chinese: '脚',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/fʊt/',
+    exampleSentence: 'I walk with my feet.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_057',
+    word: 'head',
+    chinese: '头',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/hɛd/',
+    exampleSentence: 'I nod my head.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_058',
+    word: 'hair',
+    chinese: '头发',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/hɛr/',
+    exampleSentence: 'I comb my hair.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_059',
+    word: 'arm',
+    chinese: '手臂',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/ɑrm/',
+    exampleSentence: 'I raise my arm.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_060',
+    word: 'leg',
+    chinese: '腿',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/lɛɡ/',
+    exampleSentence: 'I kick with my leg.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_061',
+    word: 'tooth',
+    chinese: '牙齿',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/tuːθ/',
+    exampleSentence: 'I brush my teeth.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_062',
+    word: 'face',
+    chinese: '脸',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/feɪs/',
+    exampleSentence: 'I wash my face.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_063',
+    word: 'finger',
+    chinese: '手指',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/ˈfɪŋɡər/',
+    exampleSentence: 'I count with my fingers.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_064',
+    word: 'tummy',
+    chinese: '肚子',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/ˈtʌmi/',
+    exampleSentence: 'My tummy is full.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_065',
+    word: 'back',
+    chinese: '后背',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/bæk/',
+    exampleSentence: 'I scratch my back.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_066',
+    word: 'neck',
+    chinese: '脖子',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/nɛk/',
+    exampleSentence: 'I turn my neck.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_067',
+    word: 'shoulder',
+    chinese: '肩膀',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/ˈʃoʊldər/',
+    exampleSentence: 'I shrug my shoulders.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_068',
+    word: 'knee',
+    chinese: '膝盖',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/niː/',
+    exampleSentence: 'I scrape my knee.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_069',
+    word: 'toe',
+    chinese: '脚趾',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/toʊ/',
+    exampleSentence: 'I wiggle my toes.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_070',
+    word: 'tongue',
+    chinese: '舌头',
+    category: 'body',
+    difficulty: 'easy',
+    phonetic: '/tʌŋ/',
+    exampleSentence: 'I stick out my tongue.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Nature (20)
+  {
+    wordId: 'word_071',
+    word: 'sun',
+    chinese: '太阳',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/sʌn/',
+    exampleSentence: 'The sun is bright.',
+    imageUrl: 'https://images.unsplash.com/photo-1473187983305-3a2818a5f629?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_072',
+    word: 'moon',
+    chinese: '月亮',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/muːn/',
+    exampleSentence: 'I see the moon.',
+    imageUrl: 'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_073',
+    word: 'star',
+    chinese: '星星',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/stɑr/',
+    exampleSentence: 'Twinkle, twinkle, little star.',
+    imageUrl: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_074',
+    word: 'cloud',
+    chinese: '云',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/klaʊd/',
+    exampleSentence: 'Look at the clouds.',
+    imageUrl: 'https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_075',
+    word: 'rain',
+    chinese: '雨',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/reɪn/',
+    exampleSentence: 'I like the rain.',
+    imageUrl: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_076',
+    word: 'snow',
+    chinese: '雪',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/snoʊ/',
+    exampleSentence: 'The snow is white.',
+    imageUrl: 'https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_077',
+    word: 'wind',
+    chinese: '风',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/wɪnd/',
+    exampleSentence: 'The wind blows.',
+    imageUrl: 'https://images.unsplash.com/photo-1475403614135-5f1aa0eb5015?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_078',
+    word: 'tree',
+    chinese: '树',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/triː/',
+    exampleSentence: 'I climb trees.',
+    imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_079',
+    word: 'flower',
+    chinese: '花',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/ˈflaʊər/',
+    exampleSentence: 'The flower is pretty.',
+    imageUrl: 'https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_080',
+    word: 'grass',
+    chinese: '草',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/ɡræs/',
+    exampleSentence: 'The grass is green.',
+    imageUrl: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_081',
+    word: 'mountain',
+    chinese: '山',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/ˈmaʊntən/',
+    exampleSentence: 'I see mountains.',
+    imageUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_082',
+    word: 'river',
+    chinese: '河流',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/ˈrɪvər/',
+    exampleSentence: 'The river flows.',
+    imageUrl: 'https://images.unsplash.com/photo-1436891690542-76d6a0a1d74f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_083',
+    word: 'ocean',
+    chinese: '海洋',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/ˈoʊʃən/',
+    exampleSentence: 'I love the ocean.',
+    imageUrl: 'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_084',
+    word: 'beach',
+    chinese: '海滩',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/biːtʃ/',
+    exampleSentence: 'I play at the beach.',
+    imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_085',
+    word: 'sky',
+    chinese: '天空',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/skaɪ/',
+    exampleSentence: 'The sky is blue.',
+    imageUrl: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_086',
+    word: 'fire',
+    chinese: '火',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/faɪər/',
+    exampleSentence: 'Fire is hot.',
+    imageUrl: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_087',
+    word: 'leaf',
+    chinese: '树叶',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/liːf/',
+    exampleSentence: 'The leaf falls.',
+    imageUrl: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_088',
+    word: 'rock',
+    chinese: '石头',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/rɑk/',
+    exampleSentence: 'I pick up a rock.',
+    imageUrl: 'https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_089',
+    word: 'sand',
+    chinese: '沙子',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/sænd/',
+    exampleSentence: 'I play in the sand.',
+    imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_090',
+    word: 'garden',
+    chinese: '花园',
+    category: 'nature',
+    difficulty: 'easy',
+    phonetic: '/ˈɡɑrdən/',
+    exampleSentence: 'I have a garden.',
+    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Vehicles (15)
+  {
+    wordId: 'word_091',
+    word: 'car',
+    chinese: '汽车',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/kɑr/',
+    exampleSentence: 'I see a car.',
+    imageUrl: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_092',
+    word: 'bus',
+    chinese: '公共汽车',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/bʌs/',
+    exampleSentence: 'I ride the bus.',
+    imageUrl: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_093',
+    word: 'train',
+    chinese: '火车',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/treɪn/',
+    exampleSentence: 'The train is long.',
+    imageUrl: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_094',
+    word: 'plane',
+    chinese: '飞机',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/pleɪn/',
+    exampleSentence: 'The plane flies high.',
+    imageUrl: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_095',
+    word: 'boat',
+    chinese: '船',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/boʊt/',
+    exampleSentence: 'The boat floats.',
+    imageUrl: 'https://images.unsplash.com/photo-1494245457289-451cb152f844?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_096',
+    word: 'bike',
+    chinese: '自行车',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/baɪk/',
+    exampleSentence: 'I ride my bike.',
+    imageUrl: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_097',
+    word: 'truck',
+    chinese: '卡车',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/trʌk/',
+    exampleSentence: 'The truck is big.',
+    imageUrl: 'https://images.unsplash.com/photo-1486402797637-a1f04e1a66ee?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_098',
+    word: 'taxi',
+    chinese: '出租车',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/ˈtæksi/',
+    exampleSentence: 'I take a taxi.',
+    imageUrl: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_099',
+    word: 'rocket',
+    chinese: '火箭',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/ˈrɑkət/',
+    exampleSentence: 'The rocket goes up!',
+    imageUrl: 'https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_100',
+    word: 'jeep',
+    chinese: '吉普车',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/dʒiːp/',
+    exampleSentence: 'The jeep goes off-road.',
+    imageUrl: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_101',
+    word: 'scooter',
+    chinese: '滑板车',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/ˈskuːtər/',
+    exampleSentence: 'I ride my scooter.',
+    imageUrl: 'https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_102',
+    word: 'ambulance',
+    chinese: '救护车',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/ˈæmbjələns/',
+    exampleSentence: 'The ambulance helps people.',
+    imageUrl: 'https://images.unsplash.com/photo-1581856236395-99f6f604b8d7?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_103',
+    word: 'police car',
+    chinese: '警车',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/pəˈliːs kɑr/',
+    exampleSentence: 'The police car has lights.',
+    imageUrl: 'https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_104',
+    word: 'fire truck',
+    chinese: '消防车',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/faɪər trʌk/',
+    exampleSentence: 'The fire truck puts out fires.',
+    imageUrl: 'https://images.unsplash.com/photo-1581856236395-99f6f604b8d7?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_105',
+    word: 'tractor',
+    chinese: '拖拉机',
+    category: 'vehicles',
+    difficulty: 'easy',
+    phonetic: '/ˈtræktər/',
+    exampleSentence: 'The tractor works on the farm.',
+    imageUrl: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=400&h=400&fit=crop&q=80'
+  },
+
+  // School (15)
+  {
+    wordId: 'word_106',
+    word: 'school',
+    chinese: '学校',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/skuːl/',
+    exampleSentence: 'I go to school.',
+    imageUrl: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_107',
+    word: 'book',
+    chinese: '书',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/bʊk/',
+    exampleSentence: 'I read a book.',
+    imageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca434da17c4?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_108',
+    word: 'pencil',
+    chinese: '铅笔',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/ˈpɛnsəl/',
+    exampleSentence: 'I write with a pencil.',
+    imageUrl: 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_109',
+    word: 'paper',
+    chinese: '纸',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/ˈpeɪpər/',
+    exampleSentence: 'I draw on paper.',
+    imageUrl: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_110',
+    word: 'bag',
+    chinese: '书包',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/bæɡ/',
+    exampleSentence: 'I carry my bag.',
+    imageUrl: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_111',
+    word: 'teacher',
+    chinese: '老师',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/ˈtiːtʃər/',
+    exampleSentence: 'My teacher is nice.',
+    imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_112',
+    word: 'desk',
+    chinese: '课桌',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/dɛsk/',
+    exampleSentence: 'I sit at my desk.',
+    imageUrl: 'https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_113',
+    word: 'chair',
+    chinese: '椅子',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/tʃɛr/',
+    exampleSentence: 'I sit on a chair.',
+    imageUrl: 'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_114',
+    word: 'ruler',
+    chinese: '尺子',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/ˈruːlər/',
+    exampleSentence: 'I measure with a ruler.',
+    imageUrl: 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_115',
+    word: 'eraser',
+    chinese: '橡皮',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/ɪˈreɪsər/',
+    exampleSentence: 'I use an eraser.',
+    imageUrl: 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_116',
+    word: 'scissors',
+    chinese: '剪刀',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/ˈsɪzərz/',
+    exampleSentence: 'I cut with scissors.',
+    imageUrl: 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_117',
+    word: 'glue',
+    chinese: '胶水',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/ɡluː/',
+    exampleSentence: 'I use glue.',
+    imageUrl: 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_118',
+    word: 'notebook',
+    chinese: '笔记本',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/ˈnoʊtbʊk/',
+    exampleSentence: 'I write in my notebook.',
+    imageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca434da17c4?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_119',
+    word: 'blackboard',
+    chinese: '黑板',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/ˈblækbɔːrd/',
+    exampleSentence: 'The teacher writes on the blackboard.',
+    imageUrl: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_120',
+    word: 'classroom',
+    chinese: '教室',
+    category: 'school',
+    difficulty: 'easy',
+    phonetic: '/ˈklæsruːm/',
+    exampleSentence: 'The classroom is big.',
+    imageUrl: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Home (15)
+  {
+    wordId: 'word_121',
+    word: 'house',
+    chinese: '房子',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/haʊs/',
+    exampleSentence: 'This is my house.',
+    imageUrl: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_122',
+    word: 'room',
+    chinese: '房间',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/ruːm/',
+    exampleSentence: 'This is my room.',
+    imageUrl: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_123',
+    word: 'bed',
+    chinese: '床',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/bɛd/',
+    exampleSentence: 'I sleep in a bed.',
+    imageUrl: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_124',
+    word: 'table',
+    chinese: '桌子',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/ˈteɪbəl/',
+    exampleSentence: 'I eat at the table.',
+    imageUrl: 'https://images.unsplash.com/photo-1617103996702-96e7112a5a73?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_125',
+    word: 'chair',
+    chinese: '椅子',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/tʃɛr/',
+    exampleSentence: 'I sit on a chair.',
+    imageUrl: 'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_126',
+    word: 'door',
+    chinese: '门',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/dɔr/',
+    exampleSentence: 'I open the door.',
+    imageUrl: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_127',
+    word: 'window',
+    chinese: '窗户',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/ˈwɪndoʊ/',
+    exampleSentence: 'I look out the window.',
+    imageUrl: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_128',
+    word: 'lamp',
+    chinese: '灯',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/læmp/',
+    exampleSentence: 'I turn on the lamp.',
+    imageUrl: 'https://images.unsplash.com/photo-1507473888900-52e1adad54cd?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_129',
+    word: 'clock',
+    chinese: '时钟',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/klɑk/',
+    exampleSentence: 'The clock tells time.',
+    imageUrl: 'https://images.unsplash.com/photo-1524740137-3f12b847fa3c?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_130',
+    word: 'bathroom',
+    chinese: '浴室',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/ˈbæθruːm/',
+    exampleSentence: 'I brush my teeth in the bathroom.',
+    imageUrl: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_131',
+    word: 'kitchen',
+    chinese: '厨房',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/ˈkɪtʃən/',
+    exampleSentence: 'I cook in the kitchen.',
+    imageUrl: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_132',
+    word: 'sofa',
+    chinese: '沙发',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/ˈsoʊfə/',
+    exampleSentence: 'I sit on the sofa.',
+    imageUrl: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_133',
+    word: 'tv',
+    chinese: '电视',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/tiː viː/',
+    exampleSentence: 'I watch TV.',
+    imageUrl: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_134',
+    word: 'phone',
+    chinese: '电话',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/foʊn/',
+    exampleSentence: 'I talk on the phone.',
+    imageUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_135',
+    word: 'key',
+    chinese: '钥匙',
+    category: 'home',
+    difficulty: 'easy',
+    phonetic: '/kiː/',
+    exampleSentence: 'I unlock the door with a key.',
+    imageUrl: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Feelings (15)
+  {
+    wordId: 'word_136',
+    word: 'happy',
+    chinese: '快乐',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/ˈhæpi/',
+    exampleSentence: 'I am happy.',
+    imageUrl: 'https://images.unsplash.com/photo-1499209974431-2761b9d48694?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_137',
+    word: 'sad',
+    chinese: '伤心',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/sæd/',
+    exampleSentence: 'I am sad.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_138',
+    word: 'angry',
+    chinese: '生气',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/ˈæŋɡri/',
+    exampleSentence: 'I am angry.',
+    imageUrl: 'https://images.unsplash.com/photo-1559638264-71d7ddc3a9e4?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_139',
+    word: 'scared',
+    chinese: '害怕',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/skɛrd/',
+    exampleSentence: 'I am scared.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_140',
+    word: 'tired',
+    chinese: '累',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/ˈtaɪərd/',
+    exampleSentence: 'I am tired.',
+    imageUrl: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_141',
+    word: 'hungry',
+    chinese: '饿',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/ˈhʌŋɡri/',
+    exampleSentence: 'I am hungry.',
+    imageUrl: 'https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_142',
+    word: 'thirsty',
+    chinese: '渴',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/ˈθɜrsti/',
+    exampleSentence: 'I am thirsty.',
+    imageUrl: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_143',
+    word: 'excited',
+    chinese: '兴奋',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/ɪkˈsaɪtəd/',
+    exampleSentence: 'I am excited!',
+    imageUrl: 'https://images.unsplash.com/photo-1499209974431-2761b9d48694?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_144',
+    word: 'surprised',
+    chinese: '惊讶',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/sərˈpraɪzd/',
+    exampleSentence: 'I am surprised.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_145',
+    word: 'sick',
+    chinese: '生病',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/sɪk/',
+    exampleSentence: 'I am sick.',
+    imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_146',
+    word: 'bored',
+    chinese: '无聊',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/bɔrd/',
+    exampleSentence: 'I am bored.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_147',
+    word: 'proud',
+    chinese: '骄傲',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/praʊd/',
+    exampleSentence: 'I am proud.',
+    imageUrl: 'https://images.unsplash.com/photo-1499209974431-2761b9d48694?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_148',
+    word: 'brave',
+    chinese: '勇敢',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/breɪv/',
+    exampleSentence: 'I am brave.',
+    imageUrl: 'https://images.unsplash.com/photo-1518968266873-768b7c8b0e89?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_149',
+    word: 'shy',
+    chinese: '害羞',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/ʃaɪ/',
+    exampleSentence: 'I am shy.',
+    imageUrl: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_150',
+    word: 'love',
+    chinese: '爱',
+    category: 'feelings',
+    difficulty: 'easy',
+    phonetic: '/lʌv/',
+    exampleSentence: 'I feel love.',
+    imageUrl: 'https://images.unsplash.com/photo-1518191352693-c66c5e6c8e22?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Actions (20)
+  {
+    wordId: 'word_151',
+    word: 'eat',
+    chinese: '吃',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/iːt/',
+    exampleSentence: 'I eat an apple.',
+    imageUrl: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_152',
+    word: 'drink',
+    chinese: '喝',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/drɪŋk/',
+    exampleSentence: 'I drink water.',
+    imageUrl: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_153',
+    word: 'sleep',
+    chinese: '睡觉',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/sliːp/',
+    exampleSentence: 'I sleep at night.',
+    imageUrl: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_154',
+    word: 'play',
+    chinese: '玩',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/pleɪ/',
+    exampleSentence: 'I play outside.',
+    imageUrl: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_155',
+    word: 'run',
+    chinese: '跑',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/rʌn/',
+    exampleSentence: 'I run fast.',
+    imageUrl: 'https://images.unsplash.com/photo-1472566473125-762736c3b7e4?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_156',
+    word: 'walk',
+    chinese: '走',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/wɔk/',
+    exampleSentence: 'I walk to school.',
+    imageUrl: 'https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_157',
+    word: 'jump',
+    chinese: '跳',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/dʒʌmp/',
+    exampleSentence: 'I jump high!',
+    imageUrl: 'https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_158',
+    word: 'dance',
+    chinese: '跳舞',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/dæns/',
+    exampleSentence: 'I like to dance.',
+    imageUrl: 'https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_159',
+    word: 'sing',
+    chinese: '唱歌',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/sɪŋ/',
+    exampleSentence: 'I sing a song.',
+    imageUrl: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_160',
+    word: 'draw',
+    chinese: '画画',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/drɔː/',
+    exampleSentence: 'I draw a picture.',
+    imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_161',
+    word: 'read',
+    chinese: '阅读',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/riːd/',
+    exampleSentence: 'I read books.',
+    imageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca434da17c4?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_162',
+    word: 'write',
+    chinese: '写',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/raɪt/',
+    exampleSentence: 'I write my name.',
+    imageUrl: 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_163',
+    word: 'talk',
+    chinese: '说话',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/tɔk/',
+    exampleSentence: 'I talk to my friend.',
+    imageUrl: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_164',
+    word: 'listen',
+    chinese: '听',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/ˈlɪsən/',
+    exampleSentence: 'I listen to music.',
+    imageUrl: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_165',
+    word: 'watch',
+    chinese: '看',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/wɑtʃ/',
+    exampleSentence: 'I watch TV.',
+    imageUrl: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_166',
+    word: 'help',
+    chinese: '帮助',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/hɛlp/',
+    exampleSentence: 'I help my mom.',
+    imageUrl: 'https://images.unsplash.com/photo-1531632799068-74bc975c06f3?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_167',
+    word: 'give',
+    chinese: '给',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/ɡɪv/',
+    exampleSentence: 'I give a gift.',
+    imageUrl: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_168',
+    word: 'take',
+    chinese: '拿',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/teɪk/',
+    exampleSentence: 'I take a cookie.',
+    imageUrl: 'https://images.unsplash.com/photo-1499636136461-9c8db9f1a37d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_169',
+    word: 'make',
+    chinese: '做',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/meɪk/',
+    exampleSentence: 'I make a cake.',
+    imageUrl: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_170',
+    word: 'clean',
+    chinese: '打扫',
+    category: 'actions',
+    difficulty: 'easy',
+    phonetic: '/kliːn/',
+    exampleSentence: 'I clean my room.',
+    imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=400&fit=crop&q=80'
+  },
+];
+
+/**
+ * MEDIUM WORDS (200 words) - 中等单词
+ * 适合有一定基础，4-5岁
+ */
+export const MEDIUM_WORDS: Word[] = [
+  // More animals
+  {
+    wordId: 'word_101',
+    word: 'elephant',
+    chinese: '大象',
+    category: 'animals',
+    difficulty: 'medium',
+    phonetic: '/ˈelɪfənt/',
+    exampleSentence: 'The elephant is big.',
+    imageUrl: 'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_102',
+    word: 'lion',
+    chinese: '狮子',
+    category: 'animals',
+    difficulty: 'medium',
+    phonetic: '/ˈlaɪən/',
+    exampleSentence: 'The lion is strong.',
+    imageUrl: 'https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_103',
+    word: 'tiger',
+    chinese: '老虎',
+    category: 'animals',
+    difficulty: 'medium',
+    phonetic: '/ˈtaɪɡər/',
+    exampleSentence: 'The tiger is fast.',
+    imageUrl: 'https://images.unsplash.com/photo-1508877644642-4494aa82f601?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_104',
+    word: 'monkey',
+    chinese: '猴子',
+    category: 'animals',
+    difficulty: 'medium',
+    phonetic: '/ˈmʌŋki/',
+    exampleSentence: 'The monkey climbs trees.',
+    imageUrl: 'https://images.unsplash.com/photo-1540573163982-03b8e312bc07?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_105',
+    word: 'panda',
+    chinese: '熊猫',
+    category: 'animals',
+    difficulty: 'medium',
+    phonetic: '/ˈpændə/',
+    exampleSentence: 'I love pandas!',
+    imageUrl: 'https://images.unsplash.com/photo-1564349680138-59cd29c82189?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More food
+  {
+    wordId: 'word_106',
+    word: 'pizza',
+    chinese: '披萨',
+    category: 'food',
+    difficulty: 'medium',
+    phonetic: '/ˈpiːtsə/',
+    exampleSentence: 'I love pizza!',
+    imageUrl: 'https://images.unsplash.com/photo-1513104890138-7c74965fcab4?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_107',
+    word: 'hamburger',
+    chinese: '汉堡包',
+    category: 'food',
+    difficulty: 'medium',
+    phonetic: '/ˈhæmbɜːrɡər/',
+    exampleSentence: 'The hamburger is yummy.',
+    imageUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_108',
+    word: 'ice cream',
+    chinese: '冰淇淋',
+    category: 'food',
+    difficulty: 'medium',
+    phonetic: '/ˈaɪs kriːm/',
+    exampleSentence: 'Ice cream is cold.',
+    imageUrl: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_109',
+    word: 'chocolate',
+    chinese: '巧克力',
+    category: 'food',
+    difficulty: 'medium',
+    phonetic: '/ˈtʃɔkələt/',
+    exampleSentence: 'Chocolate is sweet.',
+    imageUrl: 'https://images.unsplash.com/photo-1548907040-4bbee6e8adfe?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_110',
+    word: 'strawberry',
+    chinese: '草莓',
+    category: 'food',
+    difficulty: 'medium',
+    phonetic: '/ˈstrɔːberi/',
+    exampleSentence: 'Strawberries are red.',
+    imageUrl: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Clothes
+  {
+    wordId: 'word_111',
+    word: 'shirt',
+    chinese: '衬衫',
+    category: 'clothes',
+    difficulty: 'medium',
+    phonetic: '/ʃɜːrt/',
+    exampleSentence: 'I wear a blue shirt.',
+    imageUrl: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_112',
+    word: 'pants',
+    chinese: '裤子',
+    category: 'clothes',
+    difficulty: 'medium',
+    phonetic: '/pænts/',
+    exampleSentence: 'These pants are blue.',
+    imageUrl: 'https://images.unsplash.com/photo-1624378439575-c8778a74e4b0?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_113',
+    word: 'dress',
+    chinese: '连衣裙',
+    category: 'clothes',
+    difficulty: 'medium',
+    phonetic: '/dres/',
+    exampleSentence: 'The dress is beautiful.',
+    imageUrl: 'https://images.unsplash.com/photo-1515372039744-3dd524e46a3a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_114',
+    word: 'shoes',
+    chinese: '鞋子',
+    category: 'clothes',
+    difficulty: 'medium',
+    phonetic: '/ʃuːz/',
+    exampleSentence: 'I put on my shoes.',
+    imageUrl: 'https://images.unsplash.com/photo-1549298916-b41d501d3778?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_115',
+    word: 'hat',
+    chinese: '帽子',
+    category: 'clothes',
+    difficulty: 'medium',
+    phonetic: '/hæt/',
+    exampleSentence: 'I wear a hat.',
+    imageUrl: 'https://images.unsplash.com/photo-1575428652377-a2d9c3066d75?w=400&h=400&fit=crop&q=80'
+  },
+
+  // Toys
+  {
+    wordId: 'word_116',
+    word: 'ball',
+    chinese: '球',
+    category: 'toys',
+    difficulty: 'medium',
+    phonetic: '/bɔːl/',
+    exampleSentence: 'Let\'s play ball!',
+    imageUrl: 'https://images.unsplash.com/photo-1587280501655-2e574cc71e11?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_117',
+    word: 'doll',
+    chinese: '洋娃娃',
+    category: 'toys',
+    difficulty: 'medium',
+    phonetic: '/dɔl/',
+    exampleSentence: 'This is my doll.',
+    imageUrl: 'https://images.unsplash.com/photo-1559587211-97eacd1f1c9b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_118',
+    word: 'car',
+    chinese: '小汽车',
+    category: 'toys',
+    difficulty: 'medium',
+    phonetic: '/kɑːr/',
+    exampleSentence: 'The car is red.',
+    imageUrl: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_119',
+    word: 'book',
+    chinese: '书',
+    category: 'toys',
+    difficulty: 'medium',
+    phonetic: '/bʊk/',
+    exampleSentence: 'I read books.',
+    imageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca434da17c4?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_120',
+    word: 'kite',
+    chinese: '风筝',
+    category: 'toys',
+    difficulty: 'medium',
+    phonetic: '/kaɪt/',
+    exampleSentence: 'Let\'s fly a kite!',
+    imageUrl: 'https://images.unsplash.com/photo-1507606197344-1685b9e714842?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - Body parts
+  {
+    wordId: 'word_121',
+    word: 'elbow',
+    chinese: '肘部',
+    category: 'body',
+    difficulty: 'medium',
+    phonetic: '/ˈelboʊ/',
+    exampleSentence: 'I bend my elbow.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_122',
+    word: 'wrist',
+    chinese: '手腕',
+    category: 'body',
+    difficulty: 'medium',
+    phonetic: '/rɪst/',
+    exampleSentence: 'I wear a watch on my wrist.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_123',
+    word: 'ankle',
+    chinese: '脚踝',
+    category: 'body',
+    difficulty: 'medium',
+    phonetic: '/ˈæŋkəl/',
+    exampleSentence: 'I hurt my ankle.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_124',
+    word: 'cheek',
+    chinese: '脸颊',
+    category: 'body',
+    difficulty: 'medium',
+    phonetic: '/tʃiːk/',
+    exampleSentence: 'I kiss your cheek.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_125',
+    word: 'chin',
+    chinese: '下巴',
+    category: 'body',
+    difficulty: 'medium',
+    phonetic: '/tʃɪn/',
+    exampleSentence: 'I rest my chin on my hand.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - Nature
+  {
+    wordId: 'word_126',
+    word: 'forest',
+    chinese: '森林',
+    category: 'nature',
+    difficulty: 'medium',
+    phonetic: '/ˈfɔrəst/',
+    exampleSentence: 'I walk in the forest.',
+    imageUrl: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_127',
+    word: 'desert',
+    chinese: '沙漠',
+    category: 'nature',
+    difficulty: 'medium',
+    phonetic: '/ˈdɛzərt/',
+    exampleSentence: 'The desert is hot.',
+    imageUrl: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_128',
+    word: 'island',
+    chinese: '岛屿',
+    category: 'nature',
+    difficulty: 'medium',
+    phonetic: '/ˈaɪlənd/',
+    exampleSentence: 'I live on an island.',
+    imageUrl: 'https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_129',
+    word: 'waterfall',
+    chinese: '瀑布',
+    category: 'nature',
+    difficulty: 'medium',
+    phonetic: '/ˈwɔtərfɔl/',
+    exampleSentence: 'The waterfall is beautiful.',
+    imageUrl: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_130',
+    word: 'volcano',
+    chinese: '火山',
+    category: 'nature',
+    difficulty: 'medium',
+    phonetic: '/vɑlˈkeɪnoʊ/',
+    exampleSentence: 'The volcano erupts!',
+    imageUrl: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - School
+  {
+    wordId: 'word_131',
+    word: 'library',
+    chinese: '图书馆',
+    category: 'school',
+    difficulty: 'medium',
+    phonetic: '/ˈlaɪbreri/',
+    exampleSentence: 'I read in the library.',
+    imageUrl: 'https://images.unsplash.com/photo-1568667256549-094345857637?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_132',
+    word: 'playground',
+    chinese: '操场',
+    category: 'school',
+    difficulty: 'medium',
+    phonetic: '/ˈpleɪɡraʊnd/',
+    exampleSentence: 'I play on the playground.',
+    imageUrl: 'https://images.unsplash.com/photo-1596464716127-f9a847be9b3b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_133',
+    word: 'canteen',
+    chinese: '食堂',
+    category: 'school',
+    difficulty: 'medium',
+    phonetic: '/kænˈtiːn/',
+    exampleSentence: 'I eat in the canteen.',
+    imageUrl: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_134',
+    word: 'lesson',
+    chinese: '课程',
+    category: 'school',
+    difficulty: 'medium',
+    phonetic: '/ˈlɛsən/',
+    exampleSentence: 'I have a math lesson.',
+    imageUrl: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_135',
+    word: 'homework',
+    chinese: '作业',
+    category: 'school',
+    difficulty: 'medium',
+    phonetic: '/ˈhoʊmwɜrk/',
+    exampleSentence: 'I do my homework.',
+    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - Food
+  {
+    wordId: 'word_136',
+    word: 'sandwich',
+    chinese: '三明治',
+    category: 'food',
+    difficulty: 'medium',
+    phonetic: '/ˈsændwɪtʃ/',
+    exampleSentence: 'I eat a sandwich.',
+    imageUrl: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_137',
+    word: 'noodles',
+    chinese: '面条',
+    category: 'food',
+    difficulty: 'medium',
+    phonetic: '/ˈnuːdəlz/',
+    exampleSentence: 'I like noodles.',
+    imageUrl: 'https://images.unsplash.com/photo-1555126634-323283e090fa?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_138',
+    word: 'soup',
+    chinese: '汤',
+    category: 'food',
+    difficulty: 'medium',
+    phonetic: '/suːp/',
+    exampleSentence: 'The soup is hot.',
+    imageUrl: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_139',
+    word: 'salad',
+    chinese: '沙拉',
+    category: 'food',
+    difficulty: 'medium',
+    phonetic: '/ˈsæləd/',
+    exampleSentence: 'I eat salad.',
+    imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_140',
+    word: 'cheese',
+    chinese: '奶酪',
+    category: 'food',
+    difficulty: 'medium',
+    phonetic: '/tʃiːz/',
+    exampleSentence: 'I like cheese.',
+    imageUrl: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - Clothes
+  {
+    wordId: 'word_141',
+    word: 'jacket',
+    chinese: '夹克',
+    category: 'clothes',
+    difficulty: 'medium',
+    phonetic: '/ˈdʒækət/',
+    exampleSentence: 'I wear a jacket.',
+    imageUrl: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_142',
+    word: 'coat',
+    chinese: '外套',
+    category: 'clothes',
+    difficulty: 'medium',
+    phonetic: '/koʊt/',
+    exampleSentence: 'I wear a coat in winter.',
+    imageUrl: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_143',
+    word: 'socks',
+    chinese: '袜子',
+    category: 'clothes',
+    difficulty: 'medium',
+    phonetic: '/sɑks/',
+    exampleSentence: 'I wear socks.',
+    imageUrl: 'https://images.unsplash.com/photo-1583266658014-922d01bd2fc1?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_144',
+    word: 'gloves',
+    chinese: '手套',
+    category: 'clothes',
+    difficulty: 'medium',
+    phonetic: '/ɡlʌvz/',
+    exampleSentence: 'I wear gloves.',
+    imageUrl: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_145',
+    word: 'scarf',
+    chinese: '围巾',
+    category: 'clothes',
+    difficulty: 'medium',
+    phonetic: '/skɑrf/',
+    exampleSentence: 'I wear a scarf.',
+    imageUrl: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - Animals
+  {
+    wordId: 'word_146',
+    word: 'giraffe',
+    chinese: '长颈鹿',
+    category: 'animals',
+    difficulty: 'medium',
+    phonetic: '/dʒəˈræf/',
+    exampleSentence: 'The giraffe is tall.',
+    imageUrl: 'https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_147',
+    word: 'zebra',
+    chinese: '斑马',
+    category: 'animals',
+    difficulty: 'medium',
+    phonetic: '/ˈziːbrə/',
+    exampleSentence: 'The zebra has stripes.',
+    imageUrl: 'https://images.unsplash.com/photo-1559452380-7e7a42564972?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_148',
+    word: 'penguin',
+    chinese: '企鹅',
+    category: 'animals',
+    difficulty: 'medium',
+    phonetic: '/ˈpɛŋɡwɪn/',
+    exampleSentence: 'The penguin walks funny.',
+    imageUrl: 'https://images.unsplash.com/photo-1551986782-d0169b3f8fa7?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_149',
+    word: 'kangaroo',
+    chinese: '袋鼠',
+    category: 'animals',
+    difficulty: 'medium',
+    phonetic: '/ˌkæŋɡəˈruː/',
+    exampleSentence: 'The kangaroo jumps.',
+    imageUrl: 'https://images.unsplash.com/photo-1577661555211-7b626ad64804?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_150',
+    word: 'dolphin',
+    chinese: '海豚',
+    category: 'animals',
+    difficulty: 'medium',
+    phonetic: '/ˈdɑlfən/',
+    exampleSentence: 'The dolphin swims.',
+    imageUrl: 'https://images.unsplash.com/photo-1607153333879-c174d265f1d2?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - Vehicles
+  {
+    wordId: 'word_151',
+    word: 'helicopter',
+    chinese: '直升机',
+    category: 'vehicles',
+    difficulty: 'medium',
+    phonetic: '/ˈhɛləkɑptər/',
+    exampleSentence: 'The helicopter flies.',
+    imageUrl: 'https://images.unsplash.com/photo-1520637836862-4d197d17c93a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_152',
+    word: 'subway',
+    chinese: '地铁',
+    category: 'vehicles',
+    difficulty: 'medium',
+    phonetic: '/ˈsʌbweɪ/',
+    exampleSentence: 'I take the subway.',
+    imageUrl: 'https://images.unsplash.com/photo-1506466010722-395aa2bef877?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_153',
+    word: 'motorcycle',
+    chinese: '摩托车',
+    category: 'vehicles',
+    difficulty: 'medium',
+    phonetic: '/ˈmoʊtərsaɪkəl/',
+    exampleSentence: 'The motorcycle is fast.',
+    imageUrl: 'https://images.unsplash.com/photo-1558981285-6f0c94958bb6?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_154',
+    word: 'bicycle',
+    chinese: '自行车',
+    category: 'vehicles',
+    difficulty: 'medium',
+    phonetic: '/ˈbaɪsɪkəl/',
+    exampleSentence: 'I ride my bicycle.',
+    imageUrl: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_155',
+    word: 'ship',
+    chinese: '大船',
+    category: 'vehicles',
+    difficulty: 'medium',
+    phonetic: '/ʃɪp/',
+    exampleSentence: 'The ship is big.',
+    imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - Home
+  {
+    wordId: 'word_156',
+    word: 'bedroom',
+    chinese: '卧室',
+    category: 'home',
+    difficulty: 'medium',
+    phonetic: '/ˈbɛdruːm/',
+    exampleSentence: 'I sleep in my bedroom.',
+    imageUrl: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_157',
+    word: 'living room',
+    chinese: '客厅',
+    category: 'home',
+    difficulty: 'medium',
+    phonetic: '/ˈlɪvɪŋ ruːm/',
+    exampleSentence: 'I watch TV in the living room.',
+    imageUrl: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_158',
+    word: 'garage',
+    chinese: '车库',
+    category: 'home',
+    difficulty: 'medium',
+    phonetic: '/ɡəˈrɑʒ/',
+    exampleSentence: 'The car is in the garage.',
+    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_159',
+    word: 'yard',
+    chinese: '院子',
+    category: 'home',
+    difficulty: 'medium',
+    phonetic: '/jɑrd/',
+    exampleSentence: 'I play in the yard.',
+    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_160',
+    word: 'roof',
+    chinese: '屋顶',
+    category: 'home',
+    difficulty: 'medium',
+    phonetic: '/ruːf/',
+    exampleSentence: 'The roof is high.',
+    imageUrl: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - Family
+  {
+    wordId: 'word_161',
+    word: 'aunt',
+    chinese: '阿姨/姑姑',
+    category: 'family',
+    difficulty: 'medium',
+    phonetic: '/ænt/',
+    exampleSentence: 'This is my aunt.',
+    imageUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_162',
+    word: 'uncle',
+    chinese: '叔叔/舅舅',
+    category: 'family',
+    difficulty: 'medium',
+    phonetic: '/ˈʌŋkəl/',
+    exampleSentence: 'This is my uncle.',
+    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_163',
+    word: 'cousin',
+    chinese: '堂/表兄弟姐妹',
+    category: 'family',
+    difficulty: 'medium',
+    phonetic: '/ˈkʌzən/',
+    exampleSentence: 'This is my cousin.',
+    imageUrl: 'https://images.unsplash.com/photo-1519689680058-324329e70ba5?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_164',
+    word: 'niece',
+    chinese: '侄女/外甥女',
+    category: 'family',
+    difficulty: 'medium',
+    phonetic: '/niːs/',
+    exampleSentence: 'This is my niece.',
+    imageUrl: 'https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_165',
+    word: 'nephew',
+    chinese: '侄子/外甥',
+    category: 'family',
+    difficulty: 'medium',
+    phonetic: '/ˈnɛfjuː/',
+    exampleSentence: 'This is my nephew.',
+    imageUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - Actions
+  {
+    wordId: 'word_166',
+    word: 'climb',
+    chinese: '攀爬',
+    category: 'actions',
+    difficulty: 'medium',
+    phonetic: '/klaɪm/',
+    exampleSentence: 'I climb the tree.',
+    imageUrl: 'https://images.unsplash.com/photo-1472566473125-762736c3b7e4?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_167',
+    word: 'swim',
+    chinese: '游泳',
+    category: 'actions',
+    difficulty: 'medium',
+    phonetic: '/swɪm/',
+    exampleSentence: 'I swim in the water.',
+    imageUrl: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_168',
+    word: 'fly',
+    chinese: '飞',
+    category: 'actions',
+    difficulty: 'medium',
+    phonetic: '/flaɪ/',
+    exampleSentence: 'Birds fly in the sky.',
+    imageUrl: 'https://images.unsplash.com/photo-1475070929565-c985b496cb9f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_169',
+    word: 'throw',
+    chinese: '扔',
+    category: 'actions',
+    difficulty: 'medium',
+    phonetic: '/θroʊ/',
+    exampleSentence: 'I throw the ball.',
+    imageUrl: 'https://images.unsplash.com/photo-1587280501655-2e574cc71e11?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_170',
+    word: 'catch',
+    chinese: '接/抓',
+    category: 'actions',
+    difficulty: 'medium',
+    phonetic: '/kætʃ/',
+    exampleSentence: 'I catch the ball.',
+    imageUrl: 'https://images.unsplash.com/photo-1587280501655-2e574cc71e11?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - Feelings
+  {
+    wordId: 'word_171',
+    word: 'worried',
+    chinese: '担心',
+    category: 'feelings',
+    difficulty: 'medium',
+    phonetic: '/ˈwɜrid/',
+    exampleSentence: 'I am worried.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_172',
+    word: 'calm',
+    chinese: '平静',
+    category: 'feelings',
+    difficulty: 'medium',
+    phonetic: '/kɑm/',
+    exampleSentence: 'I stay calm.',
+    imageUrl: 'https://images.unsplash.com/photo-1499209974431-2761b9d48694?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_173',
+    word: 'lonely',
+    chinese: '孤独',
+    category: 'feelings',
+    difficulty: 'medium',
+    phonetic: '/ˈloʊnli/',
+    exampleSentence: 'I feel lonely.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_174',
+    word: 'nervous',
+    chinese: '紧张',
+    category: 'feelings',
+    difficulty: 'medium',
+    phonetic: '/ˈnɜrvəs/',
+    exampleSentence: 'I am nervous.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_175',
+    word: 'confident',
+    chinese: '自信',
+    category: 'feelings',
+    difficulty: 'medium',
+    phonetic: '/ˈkɑnfədənt/',
+    exampleSentence: 'I am confident.',
+    imageUrl: 'https://images.unsplash.com/photo-1499209974431-2761b9d48694?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More medium words - Toys
+  {
+    wordId: 'word_176',
+    word: 'teddy bear',
+    chinese: '泰迪熊',
+    category: 'toys',
+    difficulty: 'medium',
+    phonetic: '/ˈtɛdi bɛr/',
+    exampleSentence: 'I sleep with my teddy bear.',
+    imageUrl: 'https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_177',
+    word: 'robot',
+    chinese: '机器人',
+    category: 'toys',
+    difficulty: 'medium',
+    phonetic: '/ˈroʊbɑt/',
+    exampleSentence: 'I have a robot.',
+    imageUrl: 'https://images.unsplash.com/photo-1485579149621-3123dd979885?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_178',
+    word: 'puzzle',
+    chinese: '拼图',
+    category: 'toys',
+    difficulty: 'medium',
+    phonetic: '/ˈpʌzəl/',
+    exampleSentence: 'I do a puzzle.',
+    imageUrl: 'https://images.unsplash.com/photo-1596464716127-9c86b246530d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_179',
+    word: 'lego',
+    chinese: '乐高',
+    category: 'toys',
+    difficulty: 'medium',
+    phonetic: '/ˈlɛɡoʊ/',
+    exampleSentence: 'I build with lego.',
+    imageUrl: 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_180',
+    word: 'yo-yo',
+    chinese: '溜溜球',
+    category: 'toys',
+    difficulty: 'medium',
+    phonetic: '/ˈjoʊ joʊ/',
+    exampleSentence: 'I play with a yo-yo.',
+    imageUrl: 'https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=400&h=400&fit=crop&q=80'
+  },
+];
+
+/**
+ * HARD WORDS (150 words) - 困难单词
+ * 适合进阶学习，5-6岁
+ */
+export const HARD_WORDS: Word[] = [
+  {
+    wordId: 'word_201',
+    word: 'butterfly',
+    chinese: '蝴蝶',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/ˈbʌtərflaɪ/',
+    exampleSentence: 'The butterfly is beautiful.',
+    imageUrl: 'https://images.unsplash.com/photo-1559161566-1f4535e1e7ad?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_202',
+    word: 'crocodile',
+    chinese: '鳄鱼',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/ˈkrɔkədaɪl/',
+    exampleSentence: 'The crocodile swims.',
+    imageUrl: 'https://images.unsplash.com/photo-1509369134388-7c1d9187991f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_203',
+    word: 'pineapple',
+    chinese: '菠萝',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˈpaɪnæpəl/',
+    exampleSentence: 'Pineapples are sweet.',
+    imageUrl: 'https://images.unsplash.com/photo-1589665742516-7486c8a26158?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_204',
+    word: 'watermelon',
+    chinese: '西瓜',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˈwɔːtərmelən/',
+    exampleSentence: 'Watermelon is my favorite fruit.',
+    imageUrl: 'https://images.unsplash.com/photo-1583302245148-158be8177543f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_205',
+    word: 'strawberry',
+    chinese: '草莓',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˈstrɔːberi/',
+    exampleSentence: 'I love strawberries!',
+    imageUrl: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More hard words - Animals
+  {
+    wordId: 'word_206',
+    word: 'octopus',
+    chinese: '章鱼',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/ˈɑktəpəs/',
+    exampleSentence: 'The octopus has eight arms.',
+    imageUrl: 'https://images.unsplash.com/photo-1565639048059-f5b69f0d0bc7?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_207',
+    word: 'shark',
+    chinese: '鲨鱼',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/ʃɑrk/',
+    exampleSentence: 'The shark swims fast.',
+    imageUrl: 'https://images.unsplash.com/photo-1560275619-4662e36fa65c?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_208',
+    word: 'whale',
+    chinese: '鲸鱼',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/weɪl/',
+    exampleSentence: 'The whale is huge.',
+    imageUrl: 'https://images.unsplash.com/photo-1568430462989-44163eb1752f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_209',
+    word: 'flamingo',
+    chinese: '火烈鸟',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/fləˈmɪŋɡoʊ/',
+    exampleSentence: 'The flamingo is pink.',
+    imageUrl: 'https://images.unsplash.com/photo-1497206365907-f5e630693df0?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_210',
+    word: 'peacock',
+    chinese: '孔雀',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/ˈpiːkɑk/',
+    exampleSentence: 'The peacock is beautiful.',
+    imageUrl: 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_211',
+    word: 'leopard',
+    chinese: '豹子',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/ˈlɛpərd/',
+    exampleSentence: 'The leopard has spots.',
+    imageUrl: 'https://images.unsplash.com/photo-1456926631375-92c8ce872def?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_212',
+    word: 'rhinoceros',
+    chinese: '犀牛',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/raɪˈnɑsərəs/',
+    exampleSentence: 'The rhinoceros is strong.',
+    imageUrl: 'https://images.unsplash.com/photo-1596445836561-99fbc284d6c4?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_213',
+    word: 'hippopotamus',
+    chinese: '河马',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/ˌhɪpəˈpɑtəməs/',
+    exampleSentence: 'The hippopotamus likes water.',
+    imageUrl: 'https://images.unsplash.com/photo-1551316679-9c6ae9dec224?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_214',
+    word: 'chameleon',
+    chinese: '变色龙',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/kəˈmiːliən/',
+    exampleSentence: 'The chameleon changes colors.',
+    imageUrl: 'https://images.unsplash.com/photo-1509892936864-4f3415991a5a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_215',
+    word: 'mosquito',
+    chinese: '蚊子',
+    category: 'animals',
+    difficulty: 'hard',
+    phonetic: '/məˈskiːtoʊ/',
+    exampleSentence: 'The mosquito bites.',
+    imageUrl: 'https://images.unsplash.com/photo-1594928322870-60559e30c65f?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More hard words - Food
+  {
+    wordId: 'word_216',
+    word: 'broccoli',
+    chinese: '西兰花',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˈbrɑkəli/',
+    exampleSentence: 'I eat broccoli.',
+    imageUrl: 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_217',
+    word: 'cucumber',
+    chinese: '黄瓜',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˈkjuːkʌmbər/',
+    exampleSentence: 'I like cucumber.',
+    imageUrl: 'https://images.unsplash.com/photo-1520637102912-2df7bbd723f6?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_218',
+    word: 'mushroom',
+    chinese: '蘑菇',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˈmʌʃrum/',
+    exampleSentence: 'I eat mushrooms.',
+    imageUrl: 'https://images.unsplash.com/photo-1505196836211-8f9b8d873c28?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_219',
+    word: 'yogurt',
+    chinese: '酸奶',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˈjoʊɡərt/',
+    exampleSentence: 'I eat yogurt.',
+    imageUrl: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_220',
+    word: 'spaghetti',
+    chinese: '意大利面',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/spəˈɡɛti/',
+    exampleSentence: 'I like spaghetti.',
+    imageUrl: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_221',
+    word: 'popcorn',
+    chinese: '爆米花',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˈpɑpkɔrn/',
+    exampleSentence: 'I eat popcorn.',
+    imageUrl: 'https://images.unsplash.com/photo-1578849278619-e73505e9610f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_222',
+    word: 'honey',
+    chinese: '蜂蜜',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˈhʌni/',
+    exampleSentence: 'I like honey.',
+    imageUrl: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_223',
+    word: 'pancake',
+    chinese: '煎饼',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˈpænkeɪk/',
+    exampleSentence: 'I eat pancakes.',
+    imageUrl: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_224',
+    word: 'dumpling',
+    chinese: '饺子',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˈdʌmplɪŋ/',
+    exampleSentence: 'I eat dumplings.',
+    imageUrl: 'https://images.unsplash.com/photo-1496116218417-1a781b1c423c?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_225',
+    word: 'lemonade',
+    chinese: '柠檬水',
+    category: 'food',
+    difficulty: 'hard',
+    phonetic: '/ˌlɛməˈneɪd/',
+    exampleSentence: 'I drink lemonade.',
+    imageUrl: 'https://images.unsplash.com/photo-1556881286-fc6915169721?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More hard words - Nature
+  {
+    wordId: 'word_226',
+    word: 'rainbow',
+    chinese: '彩虹',
+    category: 'nature',
+    difficulty: 'hard',
+    phonetic: '/ˈreɪnboʊ/',
+    exampleSentence: 'I see a rainbow.',
+    imageUrl: 'https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_227',
+    word: 'thunder',
+    chinese: '雷',
+    category: 'nature',
+    difficulty: 'hard',
+    phonetic: '/ˈθʌndər/',
+    exampleSentence: 'I hear thunder.',
+    imageUrl: 'https://images.unsplash.com/photo-1517684655654-1f85e55f4ba3?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_228',
+    word: 'lightning',
+    chinese: '闪电',
+    category: 'nature',
+    difficulty: 'hard',
+    phonetic: '/ˈlaɪtnɪŋ/',
+    exampleSentence: 'I see lightning.',
+    imageUrl: 'https://images.unsplash.com/photo-1517684655654-1f85e55f4ba3?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_229',
+    word: 'earthquake',
+    chinese: '地震',
+    category: 'nature',
+    difficulty: 'hard',
+    phonetic: '/ˈɜrθkweɪk/',
+    exampleSentence: 'The earthquake shakes.',
+    imageUrl: 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_230',
+    word: 'tornado',
+    chinese: '龙卷风',
+    category: 'nature',
+    difficulty: 'hard',
+    phonetic: '/tɔrˈneɪdoʊ/',
+    exampleSentence: 'The tornado spins.',
+    imageUrl: 'https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_231',
+    word: 'avalanche',
+    chinese: '雪崩',
+    category: 'nature',
+    difficulty: 'hard',
+    phonetic: '/ˈævəlæntʃ/',
+    exampleSentence: 'The avalanche falls.',
+    imageUrl: 'https://images.unsplash.com/photo-1505566433260-74667081a976?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_232',
+    word: 'canyon',
+    chinese: '峡谷',
+    category: 'nature',
+    difficulty: 'hard',
+    phonetic: '/ˈkænjən/',
+    exampleSentence: 'The canyon is deep.',
+    imageUrl: 'https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_233',
+    word: 'waterfall',
+    chinese: '瀑布',
+    category: 'nature',
+    difficulty: 'hard',
+    phonetic: '/ˈwɔtərfɔl/',
+    exampleSentence: 'The waterfall is beautiful.',
+    imageUrl: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_234',
+    word: 'sunshine',
+    chinese: '阳光',
+    category: 'nature',
+    difficulty: 'hard',
+    phonetic: '/ˈsʌnʃaɪn/',
+    exampleSentence: 'I like sunshine.',
+    imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_235',
+    word: 'moonlight',
+    chinese: '月光',
+    category: 'nature',
+    difficulty: 'hard',
+    phonetic: '/ˈmuːnlaɪt/',
+    exampleSentence: 'I see moonlight.',
+    imageUrl: 'https://images.unsplash.com/photo-1532693322450-2cb5c511067d?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More hard words - School
+  {
+    wordId: 'word_236',
+    word: 'university',
+    chinese: '大学',
+    category: 'school',
+    difficulty: 'hard',
+    phonetic: '/ˌjuːnəˈvɜrsəti/',
+    exampleSentence: 'I go to university.',
+    imageUrl: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_237',
+    word: 'dictionary',
+    chinese: '字典',
+    category: 'school',
+    difficulty: 'hard',
+    phonetic: '/ˈdɪkəˌneri/',
+    exampleSentence: 'I use a dictionary.',
+    imageUrl: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_238',
+    word: 'calendar',
+    chinese: '日历',
+    category: 'school',
+    difficulty: 'hard',
+    phonetic: '/ˈkæləndər/',
+    exampleSentence: 'I check the calendar.',
+    imageUrl: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_239',
+    word: 'computer',
+    chinese: '电脑',
+    category: 'school',
+    difficulty: 'hard',
+    phonetic: '/kəmˈpjuːtər/',
+    exampleSentence: 'I use a computer.',
+    imageUrl: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_240',
+    word: 'project',
+    chinese: '项目',
+    category: 'school',
+    difficulty: 'hard',
+    phonetic: '/ˈprɑdʒɛkt/',
+    exampleSentence: 'I do a project.',
+    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_241',
+    word: 'experiment',
+    chinese: '实验',
+    category: 'school',
+    difficulty: 'hard',
+    phonetic: '/əkˈspɛrəmənt/',
+    exampleSentence: 'I do an experiment.',
+    imageUrl: 'https://images.unsplash.com/photo-1589254065878-42c9da997008?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_242',
+    word: 'gymnasium',
+    chinese: '体育馆',
+    category: 'school',
+    difficulty: 'hard',
+    phonetic: '/dʒɪmˈneɪziəm/',
+    exampleSentence: 'I play in the gymnasium.',
+    imageUrl: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_243',
+    word: 'auditorium',
+    chinese: '礼堂',
+    category: 'school',
+    difficulty: 'hard',
+    phonetic: '/ˌɔdəˈtɔriəm/',
+    exampleSentence: 'I sit in the auditorium.',
+    imageUrl: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_244',
+    word: 'cafeteria',
+    chinese: '自助餐厅',
+    category: 'school',
+    difficulty: 'hard',
+    phonetic: '/ˌkæfəˈtɪriə/',
+    exampleSentence: 'I eat in the cafeteria.',
+    imageUrl: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_245',
+    word: 'laboratory',
+    chinese: '实验室',
+    category: 'school',
+    difficulty: 'hard',
+    phonetic: '/ləˈbɔrətɔri/',
+    exampleSentence: 'I work in the laboratory.',
+    imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More hard words - Vehicles
+  {
+    wordId: 'word_246',
+    word: 'airplane',
+    chinese: '飞机',
+    category: 'vehicles',
+    difficulty: 'hard',
+    phonetic: '/ˈɛrpleɪn/',
+    exampleSentence: 'The airplane flies.',
+    imageUrl: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_247',
+    word: 'helicopter',
+    chinese: '直升机',
+    category: 'vehicles',
+    difficulty: 'hard',
+    phonetic: '/ˈhɛləkɑptər/',
+    exampleSentence: 'The helicopter flies.',
+    imageUrl: 'https://images.unsplash.com/photo-1520637836862-4d197d17c93a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_248',
+    word: 'spaceship',
+    chinese: '宇宙飞船',
+    category: 'vehicles',
+    difficulty: 'hard',
+    phonetic: '/ˈspeɪsʃɪp/',
+    exampleSentence: 'The spaceship goes to space.',
+    imageUrl: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_249',
+    word: 'tractor',
+    chinese: '拖拉机',
+    category: 'vehicles',
+    difficulty: 'hard',
+    phonetic: '/ˈtræktər/',
+    exampleSentence: 'The tractor works.',
+    imageUrl: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_250',
+    word: 'ambulance',
+    chinese: '救护车',
+    category: 'vehicles',
+    difficulty: 'hard',
+    phonetic: '/ˈæmbjələns/',
+    exampleSentence: 'The ambulance helps.',
+    imageUrl: 'https://images.unsplash.com/photo-1581856236395-99f6f604b8d7?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More hard words - Actions
+  {
+    wordId: 'word_251',
+    word: 'decorate',
+    chinese: '装饰',
+    category: 'actions',
+    difficulty: 'hard',
+    phonetic: '/ˈdɛkəreɪt/',
+    exampleSentence: 'I decorate the room.',
+    imageUrl: 'https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_252',
+    word: 'celebrate',
+    chinese: '庆祝',
+    category: 'actions',
+    difficulty: 'hard',
+    phonetic: '/ˈsɛləbreɪt/',
+    exampleSentence: 'We celebrate together.',
+    imageUrl: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_253',
+    word: 'exercise',
+    chinese: '锻炼',
+    category: 'actions',
+    difficulty: 'hard',
+    phonetic: '/ˈɛksərsaɪz/',
+    exampleSentence: 'I exercise every day.',
+    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_254',
+    word: 'meditate',
+    chinese: '冥想',
+    category: 'actions',
+    difficulty: 'hard',
+    phonetic: '/ˈmɛdəteɪt/',
+    exampleSentence: 'I meditate quietly.',
+    imageUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_255',
+    word: 'investigate',
+    chinese: '调查',
+    category: 'actions',
+    difficulty: 'hard',
+    phonetic: '/ɪnˈvɛstəɡeɪt/',
+    exampleSentence: 'I investigate the mystery.',
+    imageUrl: 'https://images.unsplash.com/photo-1453873531674-2151bcd01707?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_256',
+    word: 'communicate',
+    chinese: '交流',
+    category: 'actions',
+    difficulty: 'hard',
+    phonetic: '/kəˈmjuːnəkeɪt/',
+    exampleSentence: 'I communicate with friends.',
+    imageUrl: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_257',
+    word: 'appreciate',
+    chinese: '感激',
+    category: 'actions',
+    difficulty: 'hard',
+    phonetic: '/əˈpriːʃieɪt/',
+    exampleSentence: 'I appreciate your help.',
+    imageUrl: 'https://images.unsplash.com/photo-1531632799068-74bc975c06f3?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_258',
+    word: 'demonstrate',
+    chinese: '演示',
+    category: 'actions',
+    difficulty: 'hard',
+    phonetic: '/ˈdɛmənstreɪt/',
+    exampleSentence: 'I demonstrate how to do it.',
+    imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_259',
+    word: 'concentrate',
+    chinese: '集中注意力',
+    category: 'actions',
+    difficulty: 'hard',
+    phonetic: '/ˈkɑnsəntreɪt/',
+    exampleSentence: 'I concentrate on my work.',
+    imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_260',
+    word: 'imagine',
+    chinese: '想象',
+    category: 'actions',
+    difficulty: 'hard',
+    phonetic: '/əˈmædʒən/',
+    exampleSentence: 'I imagine a new world.',
+    imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More hard words - Feelings
+  {
+    wordId: 'word_261',
+    word: 'frustrated',
+    chinese: '沮丧',
+    category: 'feelings',
+    difficulty: 'hard',
+    phonetic: '/ˈfrʌstreɪtəd/',
+    exampleSentence: 'I feel frustrated.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_262',
+    word: 'disappointed',
+    chinese: '失望',
+    category: 'feelings',
+    difficulty: 'hard',
+    phonetic: '/ˌdɪsəˈpɔɪntəd/',
+    exampleSentence: 'I am disappointed.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_263',
+    word: 'embarrassed',
+    chinese: '尴尬',
+    category: 'feelings',
+    difficulty: 'hard',
+    phonetic: '/əmˈbærəst/',
+    exampleSentence: 'I am embarrassed.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_264',
+    word: 'exhausted',
+    chinese: '筋疲力尽',
+    category: 'feelings',
+    difficulty: 'hard',
+    phonetic: '/əɡˈzɔstəd/',
+    exampleSentence: 'I am exhausted.',
+    imageUrl: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_265',
+    word: 'delighted',
+    chinese: '高兴',
+    category: 'feelings',
+    difficulty: 'hard',
+    phonetic: '/dɪˈlaɪtəd/',
+    exampleSentence: 'I am delighted.',
+    imageUrl: 'https://images.unsplash.com/photo-1499209974431-2761b9d48694?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_266',
+    word: 'terrified',
+    chinese: '恐惧',
+    category: 'feelings',
+    difficulty: 'hard',
+    phonetic: '/ˈtɛrəfaɪd/',
+    exampleSentence: 'I am terrified.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_267',
+    word: 'satisfied',
+    chinese: '满意',
+    category: 'feelings',
+    difficulty: 'hard',
+    phonetic: '/ˈsætəsfaɪd/',
+    exampleSentence: 'I am satisfied.',
+    imageUrl: 'https://images.unsplash.com/photo-1499209974431-2761b9d48694?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_268',
+    word: 'confused',
+    chinese: '困惑',
+    category: 'feelings',
+    difficulty: 'hard',
+    phonetic: '/kənˈfjuzd/',
+    exampleSentence: 'I am confused.',
+    imageUrl: 'https://images.unsplash.com/photo-1515879768320-efb335af5f4a?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_269',
+    word: 'relieved',
+    chinese: '如释重负',
+    category: 'feelings',
+    difficulty: 'hard',
+    phonetic: '/rɪˈliːvd/',
+    exampleSentence: 'I am relieved.',
+    imageUrl: 'https://images.unsplash.com/photo-1499209974431-2761b9d48694?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_270',
+    word: 'grateful',
+    chinese: '感激',
+    category: 'feelings',
+    difficulty: 'hard',
+    phonetic: '/ˈɡreɪtfəl/',
+    exampleSentence: 'I am grateful.',
+    imageUrl: 'https://images.unsplash.com/photo-1531632799068-74bc975c06f3?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More hard words - Body
+  {
+    wordId: 'word_271',
+    word: 'muscle',
+    chinese: '肌肉',
+    category: 'body',
+    difficulty: 'hard',
+    phonetic: '/ˈmʌsəl/',
+    exampleSentence: 'I have strong muscles.',
+    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1f85e55f4ba3?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_272',
+    word: 'skeleton',
+    chinese: '骨骼',
+    category: 'body',
+    difficulty: 'hard',
+    phonetic: '/ˈskɛlətən/',
+    exampleSentence: 'I have a skeleton.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_273',
+    word: 'stomach',
+    chinese: '胃',
+    category: 'body',
+    difficulty: 'hard',
+    phonetic: '/ˈstʌmək/',
+    exampleSentence: 'My stomach hurts.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_274',
+    word: 'throat',
+    chinese: '喉咙',
+    category: 'body',
+    difficulty: 'hard',
+    phonetic: '/θroʊt/',
+    exampleSentence: 'My throat hurts.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_275',
+    word: 'lungs',
+    chinese: '肺',
+    category: 'body',
+    difficulty: 'hard',
+    phonetic: '/lʌŋz/',
+    exampleSentence: 'I breathe with my lungs.',
+    imageUrl: 'https://images.unsplash.com/photo-1559272500-248c29a2860f?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More hard words - Home
+  {
+    wordId: 'word_276',
+    word: 'apartment',
+    chinese: '公寓',
+    category: 'home',
+    difficulty: 'hard',
+    phonetic: '/əˈpɑrtmənt/',
+    exampleSentence: 'I live in an apartment.',
+    imageUrl: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_277',
+    word: 'basement',
+    chinese: '地下室',
+    category: 'home',
+    difficulty: 'hard',
+    phonetic: '/ˈbeɪsmənt/',
+    exampleSentence: 'I go to the basement.',
+    imageUrl: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_278',
+    word: 'attic',
+    chinese: '阁楼',
+    category: 'home',
+    difficulty: 'hard',
+    phonetic: '/ˈætək/',
+    exampleSentence: 'I go to the attic.',
+    imageUrl: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_279',
+    word: 'balcony',
+    chinese: '阳台',
+    category: 'home',
+    difficulty: 'hard',
+    phonetic: '/ˈbælkəni/',
+    exampleSentence: 'I stand on the balcony.',
+    imageUrl: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_280',
+    word: 'chimney',
+    chinese: '烟囱',
+    category: 'home',
+    difficulty: 'hard',
+    phonetic: '/ˈtʃɪmni/',
+    exampleSentence: 'The chimney has smoke.',
+    imageUrl: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=400&fit=crop&q=80'
+  },
+
+  // More hard words - Clothes
+  {
+    wordId: 'word_281',
+    word: 'underwear',
+    chinese: '内衣',
+    category: 'clothes',
+    difficulty: 'hard',
+    phonetic: '/ˈʌndərwɛr/',
+    exampleSentence: 'I wear underwear.',
+    imageUrl: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_282',
+    word: 'uniform',
+    chinese: '校服',
+    category: 'clothes',
+    difficulty: 'hard',
+    phonetic: '/ˈjuːnəfɔrm/',
+    exampleSentence: 'I wear a uniform.',
+    imageUrl: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_283',
+    word: 'sunglasses',
+    chinese: '太阳镜',
+    category: 'clothes',
+    difficulty: 'hard',
+    phonetic: '/ˈsʌnɡlæsəz/',
+    exampleSentence: 'I wear sunglasses.',
+    imageUrl: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_284',
+    word: 'backpack',
+    chinese: '背包',
+    category: 'clothes',
+    difficulty: 'hard',
+    phonetic: '/ˈbækpæk/',
+    exampleSentence: 'I carry a backpack.',
+    imageUrl: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop&q=80'
+  },
+  {
+    wordId: 'word_285',
+    word: 'umbrella',
+    chinese: '雨伞',
+    category: 'clothes',
+    difficulty: 'hard',
+    phonetic: '/əmˈbrɛlə/',
+    exampleSentence: 'I use an umbrella.',
+    imageUrl: 'https://images.unsplash.com/photo-1572276596237-9db62990b1c5?w=400&h=400&fit=crop&q=80'
+  },
+];
+
+/**
+ * Get all words / 获取所有单词
+ */
+export function getAllWords(): Word[] {
+  return [...EASY_WORDS, ...MEDIUM_WORDS, ...HARD_WORDS];
+}
+
+/**
+ * Get words by category / 按分类获取单词
+ */
+export function getWordsByCategory(category: WordCategory): Word[] {
+  return getAllWords().filter(word => word.category === category);
+}
+
+/**
+ * Get words by difficulty / 按难度获取单词
+ */
+export function getWordsByDifficulty(difficulty: WordDifficulty): Word[] {
+  return getAllWords().filter(word => word.difficulty === difficulty);
+}
+
+/**
+ * Get random words / 获取随机单词
+ */
+export function getRandomWords(count: number): Word[] {
+  const allWords = getAllWords();
+  const shuffled = [...allWords].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count);
+}

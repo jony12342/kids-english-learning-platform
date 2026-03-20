@@ -72,3 +72,13 @@
 .animate-twinkle {
   animation: twinkle 1.5s ease-in-out infinite;
 }
+
+/* 3D 卡片翻转效果 */
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}

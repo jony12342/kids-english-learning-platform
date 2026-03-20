@@ -1,0 +1,1098 @@
+[
+  {
+    "wordId": "word_006",
+    "word": "cow",
+    "chinese": "奶牛",
+    "category": "animals",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/animals/word_006.jpg"
+  },
+  {
+    "wordId": "word_008",
+    "word": "horse",
+    "chinese": "马",
+    "category": "animals",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/animals/word_008.jpg"
+  },
+  {
+    "wordId": "word_009",
+    "word": "sheep",
+    "chinese": "羊",
+    "category": "animals",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/animals/word_009.jpg"
+  },
+  {
+    "wordId": "word_010",
+    "word": "chicken",
+    "chinese": "鸡",
+    "category": "animals",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/animals/word_010.jpg"
+  },
+  {
+    "wordId": "word_013",
+    "word": "orange",
+    "chinese": "橙子",
+    "category": "food",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/food/word_013.jpg"
+  },
+  {
+    "wordId": "word_014",
+    "word": "grape",
+    "chinese": "葡萄",
+    "category": "food",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/food/word_014.jpg"
+  },
+  {
+    "wordId": "word_015",
+    "word": "bread",
+    "chinese": "面包",
+    "category": "food",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/food/word_015.jpg"
+  },
+  {
+    "wordId": "word_016",
+    "word": "milk",
+    "chinese": "牛奶",
+    "category": "food",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/food/word_016.jpg"
+  },
+  {
+    "wordId": "word_017",
+    "word": "egg",
+    "chinese": "鸡蛋",
+    "category": "food",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/food/word_017.jpg"
+  },
+  {
+    "wordId": "word_019",
+    "word": "cookie",
+    "chinese": "饼干",
+    "category": "food",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/food/word_019.jpg"
+  },
+  {
+    "wordId": "word_021",
+    "word": "red",
+    "chinese": "红色",
+    "category": "colors",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/colors/word_021.jpg"
+  },
+  {
+    "wordId": "word_023",
+    "word": "yellow",
+    "chinese": "黄色",
+    "category": "colors",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/colors/word_023.jpg"
+  },
+  {
+    "wordId": "word_024",
+    "word": "green",
+    "chinese": "绿色",
+    "category": "colors",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/colors/word_024.jpg"
+  },
+  {
+    "wordId": "word_025",
+    "word": "orange",
+    "chinese": "橙色",
+    "category": "colors",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/colors/word_025.jpg"
+  },
+  {
+    "wordId": "word_026",
+    "word": "purple",
+    "chinese": "紫色",
+    "category": "colors",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/colors/word_026.jpg"
+  },
+  {
+    "wordId": "word_029",
+    "word": "white",
+    "chinese": "白色",
+    "category": "colors",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/colors/word_029.jpg"
+  },
+  {
+    "wordId": "word_031",
+    "word": "one",
+    "chinese": "一",
+    "category": "numbers",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/numbers/word_031.jpg"
+  },
+  {
+    "wordId": "word_032",
+    "word": "two",
+    "chinese": "二",
+    "category": "numbers",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/numbers/word_032.jpg"
+  },
+  {
+    "wordId": "word_033",
+    "word": "three",
+    "chinese": "三",
+    "category": "numbers",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/numbers/word_033.jpg"
+  },
+  {
+    "wordId": "word_034",
+    "word": "four",
+    "chinese": "四",
+    "category": "numbers",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/numbers/word_034.jpg"
+  },
+  {
+    "wordId": "word_035",
+    "word": "five",
+    "chinese": "五",
+    "category": "numbers",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/numbers/word_035.jpg"
+  },
+  {
+    "wordId": "word_036",
+    "word": "six",
+    "chinese": "六",
+    "category": "numbers",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/numbers/word_036.jpg"
+  },
+  {
+    "wordId": "word_037",
+    "word": "seven",
+    "chinese": "七",
+    "category": "numbers",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/numbers/word_037.jpg"
+  },
+  {
+    "wordId": "word_038",
+    "word": "eight",
+    "chinese": "八",
+    "category": "numbers",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/numbers/word_038.jpg"
+  },
+  {
+    "wordId": "word_039",
+    "word": "nine",
+    "chinese": "九",
+    "category": "numbers",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/numbers/word_039.jpg"
+  },
+  {
+    "wordId": "word_040",
+    "word": "ten",
+    "chinese": "十",
+    "category": "numbers",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/numbers/word_040.jpg"
+  },
+  {
+    "wordId": "word_041",
+    "word": "mom",
+    "chinese": "妈妈",
+    "category": "family",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/family/word_041.jpg"
+  },
+  {
+    "wordId": "word_043",
+    "word": "baby",
+    "chinese": "宝宝",
+    "category": "family",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/family/word_043.jpg"
+  },
+  {
+    "wordId": "word_049",
+    "word": "grandpa",
+    "chinese": "爷爷/外公",
+    "category": "family",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/family/word_049.jpg"
+  },
+  {
+    "wordId": "word_050",
+    "word": "friend",
+    "chinese": "朋友",
+    "category": "family",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/family/word_050.jpg"
+  },
+  {
+    "wordId": "word_051",
+    "word": "eye",
+    "chinese": "眼睛",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_051.jpg"
+  },
+  {
+    "wordId": "word_052",
+    "word": "ear",
+    "chinese": "耳朵",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_052.jpg"
+  },
+  {
+    "wordId": "word_053",
+    "word": "nose",
+    "chinese": "鼻子",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_053.jpg"
+  },
+  {
+    "wordId": "word_054",
+    "word": "mouth",
+    "chinese": "嘴巴",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_054.jpg"
+  },
+  {
+    "wordId": "word_055",
+    "word": "hand",
+    "chinese": "手",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_055.jpg"
+  },
+  {
+    "wordId": "word_056",
+    "word": "foot",
+    "chinese": "脚",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_056.jpg"
+  },
+  {
+    "wordId": "word_057",
+    "word": "head",
+    "chinese": "头",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_057.jpg"
+  },
+  {
+    "wordId": "word_058",
+    "word": "hair",
+    "chinese": "头发",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_058.jpg"
+  },
+  {
+    "wordId": "word_059",
+    "word": "arm",
+    "chinese": "手臂",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_059.jpg"
+  },
+  {
+    "wordId": "word_060",
+    "word": "leg",
+    "chinese": "腿",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_060.jpg"
+  },
+  {
+    "wordId": "word_061",
+    "word": "tooth",
+    "chinese": "牙齿",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_061.jpg"
+  },
+  {
+    "wordId": "word_062",
+    "word": "face",
+    "chinese": "脸",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_062.jpg"
+  },
+  {
+    "wordId": "word_063",
+    "word": "finger",
+    "chinese": "手指",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_063.jpg"
+  },
+  {
+    "wordId": "word_064",
+    "word": "tummy",
+    "chinese": "肚子",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_064.jpg"
+  },
+  {
+    "wordId": "word_065",
+    "word": "back",
+    "chinese": "后背",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_065.jpg"
+  },
+  {
+    "wordId": "word_066",
+    "word": "neck",
+    "chinese": "脖子",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_066.jpg"
+  },
+  {
+    "wordId": "word_067",
+    "word": "shoulder",
+    "chinese": "肩膀",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_067.jpg"
+  },
+  {
+    "wordId": "word_068",
+    "word": "knee",
+    "chinese": "膝盖",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_068.jpg"
+  },
+  {
+    "wordId": "word_069",
+    "word": "toe",
+    "chinese": "脚趾",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_069.jpg"
+  },
+  {
+    "wordId": "word_070",
+    "word": "tongue",
+    "chinese": "舌头",
+    "category": "body",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/body/word_070.jpg"
+  },
+  {
+    "wordId": "word_071",
+    "word": "sun",
+    "chinese": "太阳",
+    "category": "nature",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/nature/word_071.jpg"
+  },
+  {
+    "wordId": "word_082",
+    "word": "river",
+    "chinese": "河流",
+    "category": "nature",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/nature/word_082.jpg"
+  },
+  {
+    "wordId": "word_095",
+    "word": "boat",
+    "chinese": "船",
+    "category": "vehicles",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/vehicles/word_095.jpg"
+  },
+  {
+    "wordId": "word_097",
+    "word": "truck",
+    "chinese": "卡车",
+    "category": "vehicles",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/vehicles/word_097.jpg"
+  },
+  {
+    "wordId": "word_102",
+    "word": "ambulance",
+    "chinese": "救护车",
+    "category": "vehicles",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/vehicles/word_102.jpg"
+  },
+  {
+    "wordId": "word_104",
+    "word": "fire truck",
+    "chinese": "消防车",
+    "category": "vehicles",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/vehicles/word_104.jpg"
+  },
+  {
+    "wordId": "word_107",
+    "word": "book",
+    "chinese": "书",
+    "category": "school",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/school/word_107.jpg"
+  },
+  {
+    "wordId": "word_118",
+    "word": "notebook",
+    "chinese": "笔记本",
+    "category": "school",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/school/word_118.jpg"
+  },
+  {
+    "wordId": "word_124",
+    "word": "table",
+    "chinese": "桌子",
+    "category": "home",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/home/word_124.jpg"
+  },
+  {
+    "wordId": "word_128",
+    "word": "lamp",
+    "chinese": "灯",
+    "category": "home",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/home/word_128.jpg"
+  },
+  {
+    "wordId": "word_129",
+    "word": "clock",
+    "chinese": "时钟",
+    "category": "home",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/home/word_129.jpg"
+  },
+  {
+    "wordId": "word_136",
+    "word": "happy",
+    "chinese": "快乐",
+    "category": "feelings",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/feelings/word_136.jpg"
+  },
+  {
+    "wordId": "word_137",
+    "word": "sad",
+    "chinese": "伤心",
+    "category": "feelings",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/feelings/word_137.jpg"
+  },
+  {
+    "wordId": "word_138",
+    "word": "angry",
+    "chinese": "生气",
+    "category": "feelings",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/feelings/word_138.jpg"
+  },
+  {
+    "wordId": "word_139",
+    "word": "scared",
+    "chinese": "害怕",
+    "category": "feelings",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/feelings/word_139.jpg"
+  },
+  {
+    "wordId": "word_143",
+    "word": "excited",
+    "chinese": "兴奋",
+    "category": "feelings",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/feelings/word_143.jpg"
+  },
+  {
+    "wordId": "word_144",
+    "word": "surprised",
+    "chinese": "惊讶",
+    "category": "feelings",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/feelings/word_144.jpg"
+  },
+  {
+    "wordId": "word_146",
+    "word": "bored",
+    "chinese": "无聊",
+    "category": "feelings",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/feelings/word_146.jpg"
+  },
+  {
+    "wordId": "word_147",
+    "word": "proud",
+    "chinese": "骄傲",
+    "category": "feelings",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/feelings/word_147.jpg"
+  },
+  {
+    "wordId": "word_148",
+    "word": "brave",
+    "chinese": "勇敢",
+    "category": "feelings",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/feelings/word_148.jpg"
+  },
+  {
+    "wordId": "word_150",
+    "word": "love",
+    "chinese": "爱",
+    "category": "feelings",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/feelings/word_150.jpg"
+  },
+  {
+    "wordId": "word_155",
+    "word": "run",
+    "chinese": "跑",
+    "category": "actions",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/actions/word_155.jpg"
+  },
+  {
+    "wordId": "word_161",
+    "word": "read",
+    "chinese": "阅读",
+    "category": "actions",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/actions/word_161.jpg"
+  },
+  {
+    "wordId": "word_166",
+    "word": "help",
+    "chinese": "帮助",
+    "category": "actions",
+    "difficulty": "easy",
+    "imageUrl": "/images/words/actions/word_166.jpg"
+  },
+  {
+    "wordId": "word_103",
+    "word": "tiger",
+    "chinese": "老虎",
+    "category": "animals",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/animals/word_103.jpg"
+  },
+  {
+    "wordId": "word_104",
+    "word": "monkey",
+    "chinese": "猴子",
+    "category": "animals",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/animals/word_104.jpg"
+  },
+  {
+    "wordId": "word_105",
+    "word": "panda",
+    "chinese": "熊猫",
+    "category": "animals",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/animals/word_105.jpg"
+  },
+  {
+    "wordId": "word_106",
+    "word": "pizza",
+    "chinese": "披萨",
+    "category": "food",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/food/word_106.jpg"
+  },
+  {
+    "wordId": "word_109",
+    "word": "chocolate",
+    "chinese": "巧克力",
+    "category": "food",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/food/word_109.jpg"
+  },
+  {
+    "wordId": "word_112",
+    "word": "pants",
+    "chinese": "裤子",
+    "category": "clothes",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/clothes/word_112.jpg"
+  },
+  {
+    "wordId": "word_113",
+    "word": "dress",
+    "chinese": "连衣裙",
+    "category": "clothes",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/clothes/word_113.jpg"
+  },
+  {
+    "wordId": "word_114",
+    "word": "shoes",
+    "chinese": "鞋子",
+    "category": "clothes",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/clothes/word_114.jpg"
+  },
+  {
+    "wordId": "word_115",
+    "word": "hat",
+    "chinese": "帽子",
+    "category": "clothes",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/clothes/word_115.jpg"
+  },
+  {
+    "wordId": "word_116",
+    "word": "ball",
+    "chinese": "球",
+    "category": "toys",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/toys/word_116.jpg"
+  },
+  {
+    "wordId": "word_117",
+    "word": "doll",
+    "chinese": "洋娃娃",
+    "category": "toys",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/toys/word_117.jpg"
+  },
+  {
+    "wordId": "word_119",
+    "word": "book",
+    "chinese": "书",
+    "category": "toys",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/toys/word_119.jpg"
+  },
+  {
+    "wordId": "word_120",
+    "word": "kite",
+    "chinese": "风筝",
+    "category": "toys",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/toys/word_120.jpg"
+  },
+  {
+    "wordId": "word_121",
+    "word": "elbow",
+    "chinese": "肘部",
+    "category": "body",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/body/word_121.jpg"
+  },
+  {
+    "wordId": "word_122",
+    "word": "wrist",
+    "chinese": "手腕",
+    "category": "body",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/body/word_122.jpg"
+  },
+  {
+    "wordId": "word_123",
+    "word": "ankle",
+    "chinese": "脚踝",
+    "category": "body",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/body/word_123.jpg"
+  },
+  {
+    "wordId": "word_124",
+    "word": "cheek",
+    "chinese": "脸颊",
+    "category": "body",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/body/word_124.jpg"
+  },
+  {
+    "wordId": "word_125",
+    "word": "chin",
+    "chinese": "下巴",
+    "category": "body",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/body/word_125.jpg"
+  },
+  {
+    "wordId": "word_132",
+    "word": "playground",
+    "chinese": "操场",
+    "category": "school",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/school/word_132.jpg"
+  },
+  {
+    "wordId": "word_143",
+    "word": "socks",
+    "chinese": "袜子",
+    "category": "clothes",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/clothes/word_143.jpg"
+  },
+  {
+    "wordId": "word_147",
+    "word": "zebra",
+    "chinese": "斑马",
+    "category": "animals",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/animals/word_147.jpg"
+  },
+  {
+    "wordId": "word_149",
+    "word": "kangaroo",
+    "chinese": "袋鼠",
+    "category": "animals",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/animals/word_149.jpg"
+  },
+  {
+    "wordId": "word_151",
+    "word": "helicopter",
+    "chinese": "直升机",
+    "category": "vehicles",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/vehicles/word_151.jpg"
+  },
+  {
+    "wordId": "word_163",
+    "word": "cousin",
+    "chinese": "堂/表兄弟姐妹",
+    "category": "family",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/family/word_163.jpg"
+  },
+  {
+    "wordId": "word_166",
+    "word": "climb",
+    "chinese": "攀爬",
+    "category": "actions",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/actions/word_166.jpg"
+  },
+  {
+    "wordId": "word_171",
+    "word": "worried",
+    "chinese": "担心",
+    "category": "feelings",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/feelings/word_171.jpg"
+  },
+  {
+    "wordId": "word_172",
+    "word": "calm",
+    "chinese": "平静",
+    "category": "feelings",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/feelings/word_172.jpg"
+  },
+  {
+    "wordId": "word_173",
+    "word": "lonely",
+    "chinese": "孤独",
+    "category": "feelings",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/feelings/word_173.jpg"
+  },
+  {
+    "wordId": "word_174",
+    "word": "nervous",
+    "chinese": "紧张",
+    "category": "feelings",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/feelings/word_174.jpg"
+  },
+  {
+    "wordId": "word_175",
+    "word": "confident",
+    "chinese": "自信",
+    "category": "feelings",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/feelings/word_175.jpg"
+  },
+  {
+    "wordId": "word_178",
+    "word": "puzzle",
+    "chinese": "拼图",
+    "category": "toys",
+    "difficulty": "medium",
+    "imageUrl": "/images/words/toys/word_178.jpg"
+  },
+  {
+    "wordId": "word_201",
+    "word": "butterfly",
+    "chinese": "蝴蝶",
+    "category": "animals",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/animals/word_201.jpg"
+  },
+  {
+    "wordId": "word_202",
+    "word": "crocodile",
+    "chinese": "鳄鱼",
+    "category": "animals",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/animals/word_202.jpg"
+  },
+  {
+    "wordId": "word_203",
+    "word": "pineapple",
+    "chinese": "菠萝",
+    "category": "food",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/food/word_203.jpg"
+  },
+  {
+    "wordId": "word_204",
+    "word": "watermelon",
+    "chinese": "西瓜",
+    "category": "food",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/food/word_204.jpg"
+  },
+  {
+    "wordId": "word_206",
+    "word": "octopus",
+    "chinese": "章鱼",
+    "category": "animals",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/animals/word_206.jpg"
+  },
+  {
+    "wordId": "word_212",
+    "word": "rhinoceros",
+    "chinese": "犀牛",
+    "category": "animals",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/animals/word_212.jpg"
+  },
+  {
+    "wordId": "word_214",
+    "word": "chameleon",
+    "chinese": "变色龙",
+    "category": "animals",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/animals/word_214.jpg"
+  },
+  {
+    "wordId": "word_215",
+    "word": "mosquito",
+    "chinese": "蚊子",
+    "category": "animals",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/animals/word_215.jpg"
+  },
+  {
+    "wordId": "word_217",
+    "word": "cucumber",
+    "chinese": "黄瓜",
+    "category": "food",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/food/word_217.jpg"
+  },
+  {
+    "wordId": "word_218",
+    "word": "mushroom",
+    "chinese": "蘑菇",
+    "category": "food",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/food/word_218.jpg"
+  },
+  {
+    "wordId": "word_224",
+    "word": "dumpling",
+    "chinese": "饺子",
+    "category": "food",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/food/word_224.jpg"
+  },
+  {
+    "wordId": "word_227",
+    "word": "thunder",
+    "chinese": "雷",
+    "category": "nature",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/nature/word_227.jpg"
+  },
+  {
+    "wordId": "word_228",
+    "word": "lightning",
+    "chinese": "闪电",
+    "category": "nature",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/nature/word_228.jpg"
+  },
+  {
+    "wordId": "word_231",
+    "word": "avalanche",
+    "chinese": "雪崩",
+    "category": "nature",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/nature/word_231.jpg"
+  },
+  {
+    "wordId": "word_247",
+    "word": "helicopter",
+    "chinese": "直升机",
+    "category": "vehicles",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/vehicles/word_247.jpg"
+  },
+  {
+    "wordId": "word_250",
+    "word": "ambulance",
+    "chinese": "救护车",
+    "category": "vehicles",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/vehicles/word_250.jpg"
+  },
+  {
+    "wordId": "word_257",
+    "word": "appreciate",
+    "chinese": "感激",
+    "category": "actions",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/actions/word_257.jpg"
+  },
+  {
+    "wordId": "word_261",
+    "word": "frustrated",
+    "chinese": "沮丧",
+    "category": "feelings",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/feelings/word_261.jpg"
+  },
+  {
+    "wordId": "word_262",
+    "word": "disappointed",
+    "chinese": "失望",
+    "category": "feelings",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/feelings/word_262.jpg"
+  },
+  {
+    "wordId": "word_263",
+    "word": "embarrassed",
+    "chinese": "尴尬",
+    "category": "feelings",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/feelings/word_263.jpg"
+  },
+  {
+    "wordId": "word_265",
+    "word": "delighted",
+    "chinese": "高兴",
+    "category": "feelings",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/feelings/word_265.jpg"
+  },
+  {
+    "wordId": "word_266",
+    "word": "terrified",
+    "chinese": "恐惧",
+    "category": "feelings",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/feelings/word_266.jpg"
+  },
+  {
+    "wordId": "word_267",
+    "word": "satisfied",
+    "chinese": "满意",
+    "category": "feelings",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/feelings/word_267.jpg"
+  },
+  {
+    "wordId": "word_268",
+    "word": "confused",
+    "chinese": "困惑",
+    "category": "feelings",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/feelings/word_268.jpg"
+  },
+  {
+    "wordId": "word_269",
+    "word": "relieved",
+    "chinese": "如释重负",
+    "category": "feelings",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/feelings/word_269.jpg"
+  },
+  {
+    "wordId": "word_270",
+    "word": "grateful",
+    "chinese": "感激",
+    "category": "feelings",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/feelings/word_270.jpg"
+  },
+  {
+    "wordId": "word_271",
+    "word": "muscle",
+    "chinese": "肌肉",
+    "category": "body",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/body/word_271.jpg"
+  },
+  {
+    "wordId": "word_272",
+    "word": "skeleton",
+    "chinese": "骨骼",
+    "category": "body",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/body/word_272.jpg"
+  },
+  {
+    "wordId": "word_273",
+    "word": "stomach",
+    "chinese": "胃",
+    "category": "body",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/body/word_273.jpg"
+  },
+  {
+    "wordId": "word_274",
+    "word": "throat",
+    "chinese": "喉咙",
+    "category": "body",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/body/word_274.jpg"
+  },
+  {
+    "wordId": "word_275",
+    "word": "lungs",
+    "chinese": "肺",
+    "category": "body",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/body/word_275.jpg"
+  },
+  {
+    "wordId": "word_285",
+    "word": "umbrella",
+    "chinese": "雨伞",
+    "category": "clothes",
+    "difficulty": "hard",
+    "imageUrl": "/images/words/clothes/word_285.jpg"
+  }
+]
